@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Fournil des Terreaux, boulangerie artisanale à Lyon</title>
+  <meta name="description" content="Boulangerie artisanale aux Terreaux à Lyon : pains au levain, viennoiseries feuilletées et douceurs de saison, cuits chaque jour au fournil.">
+  <link rel="canonical" href="https://xternal69100.github.io/studio-brontes-demos/fournil-v2/">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1C1410">
+  <meta property="og:title" content="Le Fournil des Terreaux — boulangerie artisanale à Lyon">
+  <meta property="og:description" content="Pains de caractère, viennoiseries du matin et douceurs de saison au cœur des Terreaux.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="https://www.fournil-des-terreaux.fr/images/hero-pain.webp">
+  <link rel="preload" href="fonts/fraunces-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/hero-pain.webp" as="image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Bakery", "LocalBusiness"],
+    "name": "Le Fournil des Terreaux",
+    "description": "Boulangerie artisanale à Lyon, quartier des Terreaux : pains, viennoiseries et douceurs de saison.",
+    "url": "https://www.fournil-des-terreaux.fr/",
+    "image": "https://www.fournil-des-terreaux.fr/images/hero-pain.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lyon",
+      "addressRegion": "Auvergne-Rhône-Alpes",
+      "addressCountry": "FR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Lyon"
+    },
+    "servesCuisine": "Boulangerie artisanale"
+  }
+  </script>
+  <style>
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("fonts/fraunces-500-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url("fonts/fraunces-500-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("fonts/fraunces-600-latin-ext.woff2") format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    @font-face {
+      font-family: "Fraunces";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("fonts/fraunces-600-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: "Source Sans 3";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("fonts/source-sans-3-400-latin.woff2") format("woff2");
+    }
+    @font-face {
+      font-family: "Source Sans 3";
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url("fonts/source-sans-3-600-latin.woff2") format("woff2");
+    }
+
+    :root {
+      --ink: #1c1410;
+      --muted: #5c4a3a;
+      --terracotta: #a84b2f;
+      --terracotta-deep: #8a3c25;
+      --cream: #f7f1e8;
+      --linen: #ede4d6;
+      --sand: #d9cbb6;
+      --white: #fffbf5;
+      --on-dark: #f7f1e8;
+      --line: color-mix(in srgb, var(--ink) 14%, transparent);
+      --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+      --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2.5rem;
+      --space-5: 4rem;
+      --space-6: 6rem;
+      --radius: 0.5rem;
+      --measure: 38rem;
+      --shell: 70rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      font-weight: 400;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a { color: inherit; }
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--terracotta);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: var(--space-2);
+      top: -5rem;
+      z-index: 100;
+      padding: 0.75rem 1rem;
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius);
+    }
+    .skip-link:focus { top: var(--space-2); }
+
+    .shell {
+      width: min(100% - 2rem, var(--shell));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 var(--space-1);
+      color: var(--terracotta);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 9vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.85rem, 5vw, 2.75rem);
+      letter-spacing: -0.028em;
+    }
+
+    h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    p { margin: 0; max-width: var(--measure); }
+    p + p { margin-top: var(--space-2); }
+
+    .lead {
+      font-size: 1.125rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 44px;
+      padding: 0.75rem 1.25rem;
+      border: 1.5px solid transparent;
+      border-radius: var(--radius);
+      background: var(--terracotta);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+    .btn:hover { background: var(--terracotta-deep); }
+    .btn--ghost {
+      background: transparent;
+      border-color: color-mix(in srgb, var(--white) 55%, transparent);
+      color: var(--white);
+    }
+    .btn--ghost:hover {
+      background: color-mix(in srgb, var(--white) 12%, transparent);
+      border-color: var(--white);
+    }
+    .btn--outline {
+      background: transparent;
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+    .btn--outline:hover {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--cream) 92%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      min-height: 4.25rem;
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .site-nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.15rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .site-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color 160ms ease;
+    }
+    .site-nav a:hover { color: var(--terracotta); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      color: var(--on-dark);
+      background: #2a1c14;
+      min-height: min(88vh, 42rem);
+      display: grid;
+      align-items: end;
+    }
+    .hero__media {
+      position: absolute;
+      inset: 0;
+    }
+    .hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+    .hero__scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgb(28 20 16 / 35%) 0%, rgb(28 20 16 / 72%) 100%),
+        linear-gradient(90deg, rgb(28 20 16 / 70%) 0%, rgb(28 20 16 / 20%) 70%);
+    }
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-5) 0 calc(var(--space-5) + 0.5rem);
+      max-width: 40rem;
+    }
+    .hero .eyebrow { color: #e8b89a; }
+    .hero h1 { color: var(--white); }
+    .hero .lead {
+      margin-top: var(--space-3);
+      color: color-mix(in srgb, var(--on-dark) 88%, transparent);
+      max-width: 32rem;
+    }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: var(--space-4);
+    }
+
+    /* Sections */
+    .section { padding: var(--space-5) 0; }
+    @media (min-width: 48rem) {
+      .section { padding: var(--space-6) 0; }
+    }
+
+    .section--linen { background: var(--linen); }
+    .section--white { background: var(--white); }
+    .section--ink {
+      background: var(--ink);
+      color: var(--on-dark);
+    }
+    .section--ink .eyebrow { color: #e8b89a; }
+    .section--ink h2 { color: var(--white); }
+    .section--ink .lead { color: color-mix(in srgb, var(--on-dark) 78%, transparent); }
+
+    .section-head {
+      max-width: 36rem;
+      margin-bottom: var(--space-4);
+    }
+    .section-head .lead { margin-top: var(--space-2); }
+
+    /* Maison split */
+    .split {
+      display: grid;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .split__figure {
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--sand);
+    }
+    .split__figure img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .split__copy .lead { margin-top: var(--space-2); }
+    .split__note {
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--line);
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      max-width: 28rem;
+      color: var(--ink);
+    }
+
+    /* Feature product row */
+    .feature {
+      display: grid;
+      gap: var(--space-4);
+      align-items: center;
+    }
+    .feature__media {
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--sand);
+    }
+    .feature__media img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .product-list {
+      display: grid;
+      gap: 0;
+      margin: var(--space-3) 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+    .product-list li {
+      display: grid;
+      gap: 0.35rem;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .product-list h3 { margin: 0; }
+    .product-list p {
+      color: var(--muted);
+      max-width: none;
+    }
+
+    /* Visit */
+    .visit-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+    .visit-card {
+      padding: var(--space-3);
+      border: 1px solid color-mix(in srgb, var(--on-dark) 22%, transparent);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--white) 6%, transparent);
+    }
+    .visit-card h3 {
+      color: #e8b89a;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .visit-card p { color: color-mix(in srgb, var(--on-dark) 88%, transparent); max-width: none; }
+    .visit-card p + p { margin-top: 0.5rem; }
+    .visit-card a {
+      color: var(--white);
+      font-weight: 600;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+    .visit-card a:hover { color: #e8b89a; }
+
+    /* Footer */
+    .site-footer {
+      padding: var(--space-3) 0;
+      background: #120e0b;
+      color: color-mix(in srgb, var(--on-dark) 75%, transparent);
+      font-size: 0.92rem;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-2);
+    }
+    .site-footer strong {
+      color: var(--on-dark);
+      font-weight: 600;
+    }
+
+    @media (min-width: 48rem) {
+      .split {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: var(--space-5);
+      }
+      .split--reverse .split__figure { order: 2; }
+      .split--reverse .split__copy { order: 1; }
+      .feature {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: var(--space-5);
+      }
+      .visit-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: end;
+      }
+      .hero { min-height: min(86vh, 46rem); }
+      .hero__content { padding-bottom: var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+<div role="note" style="background:#1C1410;color:#F7F1E8;padding:.75rem 1rem;text-align:center;font:500 .95rem/1.4 system-ui,sans-serif">Démonstration — enseigne fictive produite par le Studio Brontès. Ce commerce n'existe pas.</div>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="shell topbar">
+      <a class="brand" href="#accueil">Le Fournil des Terreaux</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#maison">La maison</a></li>
+          <li><a href="#fournil">Le fournil</a></li>
+          <li><a href="#lyon">À Lyon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil" aria-labelledby="titre-principal">
+      <div class="hero__media" aria-hidden="true">
+        <img
+          src="images/hero-pain.webp"
+          alt=""
+          width="1280"
+          height="720"
+          fetchpriority="high"
+          decoding="async">
+        <div class="hero__scrim"></div>
+      </div>
+      <div class="shell hero__content">
+        <p class="eyebrow">Boulangerie artisanale · Lyon</p>
+        <h1 id="titre-principal">Le goût du pain, au cœur des Terreaux.</h1>
+        <p class="lead">Pâte, temps et cuisson attentive : chaque jour, le fournil sort des miches de caractère et des viennoiseries à partager.</p>
+        <div class="hero__actions">
+          <a class="btn" href="#fournil">Voir le fournil</a>
+          <a class="btn btn--ghost" href="#lyon">Nous trouver à Lyon</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" id="maison" aria-labelledby="maison-titre">
+      <div class="shell split">
+        <figure class="split__figure">
+          <img
+            src="images/ambiance-fournil.webp"
+            alt="Fournil artisanal : four à sole, plan de travail fariné et pâtons sous linge en levée"
+            width="1280"
+            height="720"
+            loading="lazy"
+            decoding="async">
+        </figure>
+        <div class="split__copy">
+          <p class="eyebrow">La maison</p>
+          <h2 id="maison-titre">Une boulangerie de quartier, simplement.</h2>
+          <p class="lead">À deux pas des Terreaux, le comptoir rassemble l’essentiel du quotidien : une croûte bien dorée, une viennoiserie du matin, une douceur choisie sans se presser.</p>
+          <p>Nous cultivons une table généreuse, accueillante et résolument lyonnaise — du fournil à la rue.</p>
+          <p class="split__note">« Une odeur de pain qui invite à entrer. »</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--linen" id="fournil" aria-labelledby="fournil-titre">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Le fournil</p>
+          <h2 id="fournil-titre">Les essentiels du comptoir</h2>
+          <p class="lead">Une sélection pour les repas ordinaires comme pour les moments qui comptent.</p>
+        </div>
+        <div class="feature">
+          <figure class="feature__media">
+            <img
+              src="images/viennoiseries.webp"
+              alt="Plan rapproché de croissants et pains au chocolat dorés, feuilletage beurré sur ardoise"
+              width="1280"
+              height="720"
+              loading="lazy"
+              decoding="async">
+          </figure>
+          <div>
+            <ul class="product-list">
+              <li>
+                <h3>Pains de caractère</h3>
+                <p>Miches et pains de table aux textures franches, pour accompagner chaque heure du jour.</p>
+              </li>
+              <li>
+                <h3>Viennoiseries du matin</h3>
+                <p>Feuilletages délicats et gourmandises à savourer avec le premier café.</p>
+              </li>
+              <li>
+                <h3>Douceurs de saison</h3>
+                <p>Créations au fil des envies, à emporter ou à offrir pour prolonger le plaisir.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--ink" id="lyon" aria-labelledby="lyon-titre">
+      <div class="shell visit-grid">
+        <div>
+          <p class="eyebrow">À Lyon</p>
+          <h2 id="lyon-titre">Le rendez-vous gourmand des Terreaux.</h2>
+          <p class="lead" style="margin-top: var(--space-2);">Venez chercher le pain du jour dans le 1er arrondissement, au rythme du fournil.</p>
+        </div>
+        <div class="visit-card">
+          <h3>Coordonnées</h3>
+          <p><strong style="color: var(--white); font-weight: 600;">Le Fournil des Terreaux</strong></p>
+          <p>Boulangerie artisanale · Quartier des Terreaux · Lyon</p>
+          <p>Les horaires détaillés seront précisés sur place et ici prochainement.</p>
+          <p><a href="mailto:bonjour@fournil-des-terreaux.fr">bonjour@fournil-des-terreaux.fr</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span><strong>Le Fournil des Terreaux</strong></span>
+      <span>Boulangerie artisanale à Lyon</span>
+    </div>
+  </footer>
+</body>
+</html>
