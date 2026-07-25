@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Fournil des Terreaux, boulangerie artisanale à Lyon</title>
+  <meta name="description" content="Le Fournil des Terreaux est une boulangerie artisanale à Lyon : pains de caractère, viennoiseries du matin et douceurs de saison au cœur des Terreaux.">
+  <link rel="canonical" href="https://xternal69100.github.io/studio-brontes-demos/test-boulangerie/">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#5c3a1e">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "Bakery"],
+    "name": "Le Fournil des Terreaux",
+    "description": "Boulangerie artisanale à Lyon.",
+    "url": "https://www.fournil-des-terreaux.fr/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lyon",
+      "addressCountry": "FR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Lyon"
+    },
+    "servesCuisine": "Boulangerie artisanale"
+  }
+  </script>
+  <style>
+    :root {
+      --ink: #24170f;
+      --espresso: #5c3a1e;
+      --terracotta: #a95436;
+      --wheat: #c69b5e;
+      --cream: #fbf6ed;
+      --linen: #f1e5d3;
+      --white: #fffdf9;
+      --line: #d7c1a4;
+      --shadow: 0 14px 35px rgb(58 34 16 / 12%);
+      --radius: 1.25rem;
+      --space-1: .5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2.5rem;
+      --space-5: 4.5rem;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: var(--sans); line-height: 1.6; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 4px; }
+    .skip-link { position: absolute; left: var(--space-2); top: -5rem; z-index: 10; background: var(--white); padding: var(--space-2); border-radius: .4rem; }
+    .skip-link:focus { top: var(--space-2); }
+    .shell { width: min(100% - 2rem, 70rem); margin-inline: auto; }
+    .eyebrow { margin: 0 0 var(--space-1); color: var(--terracotta); font-weight: 750; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: var(--serif); line-height: 1.08; }
+    h1 { margin: 0; font-size: clamp(2.65rem, 10vw, 5.6rem); letter-spacing: -.045em; }
+    h2 { margin: 0; font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: -.035em; }
+    h3 { margin: 0 0 .35rem; font-size: 1.45rem; }
+    p { margin: 0; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .7rem 1.1rem; border: 1px solid var(--espresso); border-radius: 999px; background: var(--espresso); color: var(--white); font-weight: 700; text-decoration: none; }
+    .button:hover { background: var(--terracotta); border-color: var(--terracotta); }
+    .button--quiet { background: transparent; color: var(--espresso); }
+    .site-header { border-bottom: 1px solid var(--line); background: rgb(251 246 237 / 94%); }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); min-height: 4.6rem; }
+    .brand { color: var(--espresso); font-family: var(--serif); font-size: 1.22rem; font-weight: 700; text-decoration: none; }
+    .site-nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .15rem; margin: 0; padding: 0; list-style: none; }
+    .site-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: .25rem .55rem; font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .site-nav a:hover { color: var(--terracotta); }
+    .hero { overflow: hidden; position: relative; padding: var(--space-5) 0 5rem; background: var(--linen); }
+    .hero::after { position: absolute; right: -4.8rem; bottom: -5rem; width: 17rem; aspect-ratio: 1; border: 1px solid var(--wheat); border-radius: 50%; content: ""; opacity: .55; }
+    .hero-grid { position: relative; z-index: 1; }
+    .hero-copy { max-width: 43rem; }
+    .hero-copy > p:not(.eyebrow) { max-width: 36rem; margin-top: var(--space-3); font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: var(--space-4); }
+    .hero-stamp { display: grid; place-items: center; width: 8.5rem; aspect-ratio: 1; margin: var(--space-4) 0 0 auto; border: 1px solid var(--wheat); border-radius: 50%; color: var(--espresso); font-family: var(--serif); font-size: 1.05rem; font-style: italic; text-align: center; transform: rotate(8deg); }
+    section { padding: var(--space-5) 0; }
+    .intro { background: var(--white); }
+    .intro-grid, .visit-grid { display: grid; gap: var(--space-4); }
+    .intro-copy { max-width: 37rem; }
+    .intro-copy p + p { margin-top: var(--space-2); }
+    .quote { align-self: end; padding: var(--space-3); border-left: 4px solid var(--terracotta); color: var(--espresso); font-family: var(--serif); font-size: 1.5rem; line-height: 1.3; }
+    .selection { background: var(--cream); }
+    .section-heading { max-width: 38rem; margin-bottom: var(--space-4); }
+    .section-heading p:not(.eyebrow) { margin-top: var(--space-2); }
+    .cards { display: grid; gap: var(--space-2); }
+    .card { min-height: 13rem; padding: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); }
+    .card-mark { display: grid; place-items: center; width: 3rem; height: 3rem; margin-bottom: var(--space-3); border-radius: 50%; background: var(--linen); color: var(--terracotta); font-family: var(--serif); font-size: 1.5rem; }
+    .card p { color: #594331; }
+    .visit { background: var(--espresso); color: var(--white); }
+    .visit .eyebrow { color: #f0c98f; }
+    .visit-card { padding: var(--space-3); border: 1px solid rgb(255 255 255 / 30%); border-radius: var(--radius); background: rgb(255 255 255 / 7%); }
+    .visit-card h3 { color: #f7dcae; }
+    .visit-card p + p { margin-top: var(--space-1); }
+    footer { padding: var(--space-3) 0; background: #24170f; color: #f6ead8; font-size: .92rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-2); }
+    @media (min-width: 44rem) {
+      .hero { padding: 6.5rem 0; }
+      .hero-grid { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: var(--space-3); }
+      .hero-stamp { margin: 0; }
+      .intro-grid { grid-template-columns: minmax(0, 1.15fr) minmax(15rem, .85fr); align-items: end; }
+      .cards { grid-template-columns: repeat(3, 1fr); }
+      .visit-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+<div role="note" style="background:#5c3a1e;color:#fff;padding:.75rem 1rem;text-align:center;font:500 .95rem/1.4 system-ui,sans-serif"><strong>Démonstration</strong> — enseigne fictive produite par le Studio Brontès pour illustrer un livrable. Ce commerce n'existe pas.</div>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <header class="site-header">
+    <div class="shell topbar">
+      <a class="brand" href="#accueil" aria-label="Le Fournil des Terreaux — accueil">Le Fournil des Terreaux</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#maison">La maison</a></li>
+          <li><a href="#fournil">Le fournil</a></li>
+          <li><a href="#lyon">À Lyon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil" aria-labelledby="titre-principal">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Boulangerie artisanale · Lyon</p>
+          <h1 id="titre-principal">Le goût du pain, au cœur des Terreaux.</h1>
+          <p>Le Fournil des Terreaux célèbre les gestes simples : une pâte, du temps, une cuisson attentive et le plaisir de se retrouver autour d’une belle miche.</p>
+          <div class="hero-actions">
+            <a class="button" href="#fournil">Découvrir le fournil</a>
+            <a class="button button--quiet" href="#lyon">Notre ancrage à Lyon</a>
+          </div>
+        </div>
+        <p class="hero-stamp" aria-hidden="true">Pain<br>chaud<br>du jour</p>
+      </div>
+    </section>
+
+    <section class="intro" id="maison" aria-labelledby="maison-titre">
+      <div class="shell intro-grid">
+        <div class="intro-copy">
+          <p class="eyebrow">La maison</p>
+          <h2 id="maison-titre">Une boulangerie de quartier, simplement.</h2>
+          <p>À deux pas des Terreaux, notre comptoir rassemble les indispensables du quotidien et les petites envies qui font la journée : une croûte bien dorée, une viennoiserie à partager, une douceur choisie sans se presser.</p>
+          <p>Nous cultivons une table généreuse, accueillante et résolument lyonnaise.</p>
+        </div>
+        <p class="quote">« Du fournil à la rue, une odeur de pain qui invite à entrer. »</p>
+      </div>
+    </section>
+
+    <section class="selection" id="fournil" aria-labelledby="fournil-titre">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Le fournil</p>
+          <h2 id="fournil-titre">Les essentiels du comptoir</h2>
+          <p>Une sélection pensée pour les repas ordinaires comme pour les moments qui comptent.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-mark" aria-hidden="true">01</div>
+            <h3>Pains de caractère</h3>
+            <p>Des miches et pains de table aux textures franches, pour accompagner chaque heure du jour.</p>
+          </article>
+          <article class="card">
+            <div class="card-mark" aria-hidden="true">02</div>
+            <h3>Viennoiseries du matin</h3>
+            <p>Des feuilletages délicats et des gourmandises à savourer avec le premier café de la journée.</p>
+          </article>
+          <article class="card">
+            <div class="card-mark" aria-hidden="true">03</div>
+            <h3>Douceurs de saison</h3>
+            <p>Des créations au fil des envies, à emporter ou à offrir pour prolonger le plaisir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="lyon" aria-labelledby="lyon-titre">
+      <div class="shell visit-grid">
+        <div>
+          <p class="eyebrow">À Lyon</p>
+          <h2 id="lyon-titre">Le rendez-vous gourmand des Terreaux.</h2>
+        </div>
+        <div class="visit-card">
+          <h3>Le Fournil des Terreaux</h3>
+          <p>Boulangerie artisanale à Lyon, dans le quartier des Terreaux.</p>
+          <p>Les informations pratiques seront bientôt disponibles ici.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <span>Le Fournil des Terreaux</span>
+      <span>Une boulangerie artisanale à Lyon</span>
+    </div>
+  </footer>
+</body>
+</html>

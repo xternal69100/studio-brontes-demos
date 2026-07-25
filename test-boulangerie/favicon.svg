@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Le Fournil des Terreaux">
+  <rect width="32" height="32" rx="6" fill="#5C3A1E"/>
+  <path fill="#F5E6D3" d="M8 20c0-5 3.5-9 8-9s8 4 8 9v2H8v-2z"/>
+  <path fill="#C4A574" d="M10 19c.5-3.5 2.8-6 6-6s5.5 2.5 6 6H10z"/>
+  <ellipse cx="16" cy="22" rx="9" ry="3" fill="#3D2614"/>
+  <path fill="#E8D4B8" d="M12 14.5c0-1 .8-1.8 1.8-1.8.4 0 .8.1 1.1.4.3-.8 1.1-1.4 2.1-1.4 1.2 0 2.2 1 2.2 2.2 0 .2 0 .4-.1.6H12.1c-.1-.2-.1-.4-.1-.6z"/>
+</svg>
