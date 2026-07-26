@@ -1,54 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Studio Brontès — démonstrations</title>
-<meta name="description" content="Démonstrations produites par le Studio Brontès, agence web et mobile interne. Enseignes fictives, livrables réels.">
-<meta name="robots" content="noindex, nofollow">
-<style>
-:root{color-scheme:light dark}
-body{font:16px/1.6 system-ui,sans-serif;max-width:42rem;margin:0 auto;padding:3rem 1.25rem}
-h1{font-size:1.6rem;margin-bottom:.25rem}
-p.sous{color:#6b6b6b;margin-top:0}
-ul{list-style:none;padding:0}
-li{border:1px solid #d8d8d8;border-radius:.5rem;padding:1rem;margin:.75rem 0}
-a{color:inherit}
-small{color:#6b6b6b}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Brontès — démonstrations</title>
+  <meta name="description" content="Catalogue des démonstrations fictives du Studio Brontès : vitrines livrables, sept projets, liens directs.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="catalogue-assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="catalogue-assets/fonts/newsreader-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="catalogue-assets/fonts/source-sans-3-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="catalogue-assets/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Studio Brontès — démonstrations",
+    "description": "Catalogue des démonstrations fictives du Studio Brontès.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Studio Brontès — démonstrations",
+      "url": "https://xternal69100.github.io/studio-brontes-demos/"
+    },
+    "inLanguage": "fr"
+  }
+  </script>
 </head>
 <body>
-<h1>Studio Brontès — démonstrations</h1>
-<p class="sous">Enseignes fictives, livrables réels. Chaque page a passé la gate qualité du studio.</p>
-<ul>
-  <li>
-    <a href="demo-bistrot-sauge/"><strong>Le Bistrot Sauge</strong></a><br>
-    Bistronomie lyonnaise. Cormorant Garamond, carte complète avec prix, réservation.
-    Produit en autonomie par le studio, sous doctrine durcie.<br>
-    <small>Gate : 0 erreur, 0 avertissement · contrôle visuel 390 / 1440 px · 26/07/2026</small>
-  </li>
-  <li>
-    <a href="demo-atelier-nord/"><strong>Atelier Nord Architecture</strong></a><br>
-    Cabinet d'architecture. Syne, grille de projets, ton sobre — direction artistique
-    volontairement opposée au Bistrot pour vérifier que le studio ne recycle pas un gabarit.<br>
-    <small>Gate : 0 erreur, 1 avertissement · contrôle visuel 390 / 1440 px · 26/07/2026</small>
-  </li>
-  <li>
-    <a href="fournil-v3/"><strong>Le Fournil des Terreaux — v3</strong></a><br>
-    Doctrine durcie après revue visuelle : header mobile réparé, horaires et prix réels, téléphone
-    cliquable, catalogue photographié, 8 visuels, preuves chiffrées.<br>
-    <small>Gate : 0 erreur, 0 avertissement · contrôle visuel 390 / 1440 px · 26/07/2026</small>
-  </li>
-  <li>
-    <a href="fournil-v2/"><strong>Le Fournil des Terreaux — v2</strong></a><br>
-    Direction artistique appliquée : Fraunces auto-hébergée, 3 visuels générés (Grok Imagine), accent terracotta.<br>
-    <small>Gate : 0 erreur, 0 avertissement · 25/07/2026</small>
-  </li>
-  <li>
-    <a href="test-boulangerie/"><strong>Le Fournil des Terreaux — v1</strong></a><br>
-    Premier essai : conforme mais sans direction artistique (polices système, aucune image). Gardé pour comparaison.<br>
-    <small>Gate : 0 erreur, 0 avertissement · 25/07/2026</small>
-  </li>
-</ul>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="wordmark" href="./">Studio Brontès</a>
+      <span class="header-label">Démonstrations</span>
+    </div>
+  </header>
+
+  <main id="contenu" class="main shell">
+    <header class="hero">
+      <p class="hero-kicker">Catalogue public</p>
+      <h1 class="hero-title">Démonstrations</h1>
+      <hr class="hero-rule" aria-hidden="true">
+      <p class="hero-lead">
+        Projets fictifs du Studio Brontès — vitrines livrables, pas des mockups figés.
+        Sept entrées, de la pièce la plus récente aux archives de progression.
+      </p>
+    </header>
+
+    <ol class="catalogue">
+      <li class="card-item">
+        <a class="card-link card-link--featured" href="demo-billy-trimmer/">
+          <span class="card-link__meta">
+            <span class="badge">Récent</span>
+            <span class="card-link__kind">Étude produit · Tondeuse intime fictive</span>
+          </span>
+          <span class="card-link__title">BILLY&nbsp;V2</span>
+          <span class="card-link__arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+
+      <li class="card-item">
+        <a class="card-link" href="demo-pavillon-selene/">
+          <span class="card-link__meta">
+            <span class="card-link__kind">Exposition fictive · Expérimentation éditoriale archivée</span>
+          </span>
+          <span class="card-link__title">Pavillon Séléné</span>
+          <span class="card-link__arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+
+      <li class="card-item">
+        <a class="card-link" href="demo-bistrot-sauge/">
+          <span class="card-link__meta">
+            <span class="card-link__kind">Restauration fictive · Bistronomie, Lyon&nbsp;1er</span>
+          </span>
+          <span class="card-link__title">Le Bistrot Sauge</span>
+          <span class="card-link__arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+
+      <li class="card-item">
+        <a class="card-link" href="demo-atelier-nord/">
+          <span class="card-link__meta">
+            <span class="card-link__kind">Architecture fictive · Lyon, Ain &amp; Rhône</span>
+          </span>
+          <span class="card-link__title">Atelier Nord Architecture</span>
+          <span class="card-link__arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
+
+      <li class="catalogue-series" aria-labelledby="fournil-series-label">
+        <p class="catalogue-series__label" id="fournil-series-label">Série Le Fournil des Terreaux</p>
+        <ol class="catalogue-series__list">
+          <li class="card-item">
+            <a class="card-link" href="fournil-v3/">
+              <span class="card-link__meta">
+                <span class="card-link__kind">Boulangerie · Version canonique</span>
+              </span>
+              <span class="card-link__title">Le Fournil des Terreaux&nbsp;v3</span>
+              <span class="card-link__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="card-item">
+            <a class="card-link" href="fournil-v2/">
+              <span class="card-link__meta">
+                <span class="card-link__kind">Boulangerie · Étape de progression</span>
+              </span>
+              <span class="card-link__title">Le Fournil des Terreaux&nbsp;v2</span>
+              <span class="card-link__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="card-item">
+            <a class="card-link" href="test-boulangerie/">
+              <span class="card-link__meta">
+                <span class="card-link__kind">Boulangerie · Premier essai, comparaison</span>
+              </span>
+              <span class="card-link__title">Le Fournil des Terreaux&nbsp;v1</span>
+              <span class="card-link__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer__inner">
+      <p>
+        Enseignes et produits fictifs. Ces pages servent de démonstrations de conception
+        et d’intégration — elles ne représentent pas de commerces réels.
+      </p>
+      <div class="footer-meta">
+        <span>Mise à jour · 27 juillet 2026</span>
+        <a href="https://github.com/xternal69100/studio-brontes-demos">Code source sur GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="catalogue-assets/catalogue.js" defer></script>
 </body>
 </html>

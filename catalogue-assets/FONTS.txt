@@ -1,0 +1,12 @@
+Fonts — Studio Brontès catalogue
+================================
+
+Newsreader (SIL Open Font License 1.1)
+  https://github.com/productiontype/Newsreader
+  Files: catalogue-assets/fonts/newsreader-*-latin.woff2
+
+Source Sans 3 (SIL Open Font License 1.1)
+  https://github.com/adobe-fonts/source-sans
+  Files: catalogue-assets/fonts/source-sans-3-*-latin.woff2
+
+No Google Fonts CDN. Self-hosted woff2 only.

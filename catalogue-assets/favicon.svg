@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Studio Brontès">
+  <rect width="32" height="32" fill="#F3F0E8"/>
+  <rect x="6" y="22" width="14" height="3" fill="#B45309"/>
+  <text x="6" y="18" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#1C1B19">B</text>
+</svg>
