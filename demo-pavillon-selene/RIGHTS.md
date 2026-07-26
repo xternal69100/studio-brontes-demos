@@ -27,4 +27,4 @@ Aucune image extraite de Refero, d’un musée ou d’une galerie. EXIF non cons
 
 ## Refero
 
-Styles consultés uniquement comme références de tokens/layout/motion (Hugo & Marie, ARTU, Myrch Club). Aucun asset, screenshot ou code copié.
+Styles consultés uniquement comme références de tokens/layout/motion (14islands, Franco Maria Ricci Editore, Hugo & Marie). Aucun asset, screenshot ou code copié.
