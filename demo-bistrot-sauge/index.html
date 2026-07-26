@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Le Bistrot Sauge — Bistronomique de saison à Lyon 1er</title>
   <meta name="description" content="Cuisine de saison au 12 rue de la Martinière, Lyon 1er. Feu, herbes, producteur nommé par Camille Vernay. Réservez : mar–sam midi et soir, dim. midi.">
+  
   <link rel="canonical" href="https://xternal69100.github.io/studio-brontes-demos/demo-bistrot-sauge/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#F3EFE6">
@@ -65,16 +66,11 @@
         "closes": "14:30"
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "210",
-      "bestRating": "5"
-    },
     "founder": {
       "@type": "Person",
       "name": "Camille Vernay"
-    }
+    },
+    "description": "Projet fictif de démonstration Studio Brontès — restaurant bistronomique de saison à Lyon."
   }
   </script>
   <style>
@@ -85,10 +81,11 @@
     :root{
       --ink:#1a211e;--muted:#5c665e;--sage:#4f6f5c;--sage-dark:#3a5444;--linen:#f3efe6;--cream:#faf7f0;--stone:#d4cfc3;--leaf:#8fae93;--night:#121816;--white:#fffdf9;--copper:#8b4a2f;
       --line:rgb(26 33 30 / 18%);--font-display:"Cormorant Garamond","Palatino Linotype",serif;--font-body:"Outfit","Segoe UI",sans-serif;
-      --s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2.5rem;--s5:4rem;--s6:6rem;--s7:8rem;--shell:77.5rem;--measure:40rem
+      --s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2.5rem;--s5:4rem;--s6:6rem;--s7:8rem;--shell:77.5rem;--measure:40rem;
+      --ease:cubic-bezier(.22,1,.36,1);--t-fast:160ms;--t-reveal:400ms
     }
     *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:5rem}
+    html{scroll-behavior:smooth;scroll-padding-top:5.5rem}
     body{margin:0;background:var(--linen);color:var(--ink);font-family:var(--font-body);font-size:1.0625rem;line-height:1.55;text-rendering:optimizeLegibility}
     img{display:block;width:100%;height:auto}
     figure{margin:0;overflow:hidden;background:var(--stone)}
@@ -97,6 +94,8 @@
     a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--sage);outline-offset:4px}
     .skip{position:fixed;z-index:100;top:.75rem;left:.75rem;transform:translateY(-200%);padding:.75rem 1rem;background:var(--night);color:var(--white);font-weight:600;text-decoration:none}
     .skip:focus{transform:none}
+    .demo-banner{margin:0;padding:.55rem 1.25rem;background:var(--night);color:var(--linen);text-align:center;font-size:.82rem;font-weight:600;letter-spacing:.04em}
+    .demo-banner a{color:var(--leaf);font-weight:600}
     .shell{width:min(100% - 2.5rem,var(--shell));margin-inline:auto}
     .narrow{max-width:var(--measure)}
     .kicker{margin:0 0 var(--s2);color:var(--copper);font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
@@ -111,25 +110,39 @@
     .section{padding-block:var(--s5)}
     .section-head{display:grid;gap:var(--s3);margin-bottom:var(--s4)}
     .rule-top{border-top:1px solid var(--line)}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;min-height:48px;min-width:44px;padding:.75rem 1.35rem;border:2px solid var(--sage);border-radius:2px;background:var(--sage);color:var(--white);font-weight:600;text-decoration:none;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
-    .button::after{content:"→";font-size:1.25em;transition:transform 160ms ease}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;min-height:48px;min-width:44px;padding:.75rem 1.35rem;border:2px solid var(--sage);border-radius:2px;background:var(--sage);color:var(--white);font-weight:600;text-decoration:none;transition:background-color var(--t-fast) ease,border-color var(--t-fast) ease,color var(--t-fast) ease,transform var(--t-fast) var(--ease)}
+    .button::after{content:"→";font-size:1.25em;transition:transform var(--t-fast) var(--ease)}
     .button:hover{background:var(--sage-dark);border-color:var(--sage-dark);color:var(--white)}
-    .button:hover::after{transform:translateX(3px)}
+    .button:hover::after{transform:translateX(4px)}
+    .button:focus-visible::after{transform:translateX(4px)}
     .button--ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
     .button--ghost:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
     .button-row{display:flex;flex-wrap:wrap;gap:.75rem 1rem;margin-top:var(--s4)}
-    .text-link{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+    .text-link{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-position:0 100%;background-repeat:no-repeat;background-size:0 1.5px;transition:background-size var(--t-fast) var(--ease),color var(--t-fast) ease}
+    .text-link:hover,.text-link:focus-visible{background-size:100% 1.5px;color:var(--sage)}
 
+    /* —— Dual nav: desktop list in flow; mobile details only —— */
     .site-header{position:sticky;z-index:50;top:0;background:rgb(243 239 230 / 94%);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
     .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);min-height:4.5rem}
-    .brand{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-display);font-size:1.35rem;font-weight:600;line-height:1;text-decoration:none;letter-spacing:-.02em}
+    .brand{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-display);font-size:1.35rem;font-weight:600;line-height:1;text-decoration:none;letter-spacing:-.02em;flex-shrink:0}
     .brand span{display:block;max-width:11rem}
-    .nav-panel{position:relative}
-    .nav-toggle{display:flex;align-items:center;min-height:44px;padding:.5rem 0;font-weight:600;cursor:pointer;list-style:none}
+    .site-nav{display:flex;align-items:center;justify-content:flex-end;min-width:0}
+    .nav-desktop{display:none;align-items:center;gap:.35rem 1.15rem;margin:0;padding:0;list-style:none}
+    .nav-desktop a{position:relative;display:inline-flex;align-items:center;min-height:44px;padding:.25rem 0;font-weight:600;font-size:.95rem;text-decoration:none;color:var(--ink)}
+    .nav-desktop a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:.45rem;height:1.5px;background:var(--sage);transform:scaleX(0);transform-origin:left center;transition:transform var(--t-fast) var(--ease)}
+    .nav-desktop a:not(.nav-cta):hover::after,
+    .nav-desktop a:not(.nav-cta):focus-visible::after,
+    .nav-desktop a[aria-current="true"]:not(.nav-cta)::after{transform:scaleX(1)}
+    .nav-desktop a:hover,.nav-desktop a:focus-visible{color:var(--sage)}
+    .nav-cta{padding:.4rem .85rem!important;border:1.5px solid var(--sage);border-radius:2px;color:var(--sage)!important;transition:background-color var(--t-fast) ease,color var(--t-fast) ease,border-color var(--t-fast) ease}
+    .nav-cta:hover,.nav-cta:focus-visible{background:var(--sage);color:var(--white)!important;border-color:var(--sage)}
+    .nav-mobile{position:relative}
+    .nav-toggle{display:flex;align-items:center;min-height:44px;min-width:44px;padding:.5rem 0;font-weight:600;cursor:pointer;list-style:none}
     .nav-toggle::-webkit-details-marker{display:none}
-    .nav-toggle::after{content:"+";margin-left:.5rem;font-size:1.35rem;font-weight:400}
-    details[open] .nav-toggle::after{content:"−"}
-    .nav-list{position:absolute;top:100%;right:0;left:auto;min-width:min(100vw - 2.5rem,18rem);margin:0;padding:.75rem 1.25rem 1.25rem;background:var(--linen);border:1px solid var(--line);border-top:0;list-style:none}
+    .nav-toggle::after{content:"+";margin-left:.5rem;font-size:1.35rem;font-weight:400;transition:transform var(--t-fast) ease}
+    .nav-mobile[open] .nav-toggle::after{content:"−"}
+    .nav-mobile:not([open]) .nav-list{display:none}
+    .nav-mobile[open] .nav-list{display:block;position:absolute;top:calc(100% + .35rem);right:0;left:auto;z-index:60;min-width:min(100vw - 2.5rem,18rem);margin:0;padding:.75rem 1.25rem 1.25rem;background:var(--linen);border:1px solid var(--line);list-style:none;box-shadow:0 12px 28px rgb(18 24 22 / 8%)}
     .nav-list a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid var(--line);font-weight:600;text-decoration:none}
     .nav-list li:last-child a{border-bottom:0;color:var(--sage)}
 
@@ -151,12 +164,14 @@
     .carte{background:var(--cream)}
     .category-list{display:grid;gap:var(--s6);margin-top:var(--s5)}
     .category{display:grid;gap:var(--s3)}
-    .category figure img{aspect-ratio:16/10;object-fit:cover;transition:transform 180ms ease}
-    .category:hover figure img{transform:scale(1.012)}
+    .category figure{border-radius:0}
+    .category figure img{aspect-ratio:16/10;object-fit:cover;transition:transform 220ms var(--ease)}
+    .category:hover figure img,.category:focus-within figure img{transform:scale(1.02)}
     .category-number{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-bottom:var(--s2);border-bottom:1px solid var(--ink)}
     .category-number span{color:var(--sage);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
     .products{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
-    .product{display:grid;grid-template-columns:1fr auto;gap:.25rem var(--s2);padding:1rem 0;border-bottom:1px solid var(--line)}
+    .product{display:grid;grid-template-columns:1fr auto;gap:.25rem var(--s2);padding:1rem 0;border-bottom:1px solid var(--line);transition:border-color var(--t-fast) ease}
+    .product:hover{border-bottom-color:rgb(79 111 92 / 45%)}
     .product strong{font-weight:600}
     .product .desc{color:var(--muted);font-size:.95rem;grid-column:1/-1}
     .price{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
@@ -173,7 +188,8 @@
 
     .craft{background:var(--linen)}
     .craft-grid{display:grid;gap:.75rem;margin-top:var(--s4)}
-    .craft-grid img{aspect-ratio:16/10;object-fit:cover;min-height:14rem;height:100%}
+    .craft-grid img{aspect-ratio:16/10;object-fit:cover;min-height:14rem;height:100%;transition:transform 220ms var(--ease)}
+    .craft-grid figure:hover img{transform:scale(1.015)}
     .craft-copy{display:grid;gap:var(--s3);margin-top:var(--s4)}
     .step{padding-top:var(--s2);border-top:1px solid var(--line)}
     .step b{display:block;margin-bottom:.35rem;color:var(--sage);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
@@ -212,16 +228,25 @@
     .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem var(--s3);margin-top:var(--s4);padding-top:var(--s2);border-top:1px solid rgb(243 239 230 / 22%);color:#a8b0aa;font-size:.9rem}
     .legal a{min-height:44px}
 
+    /* Motion — hidden only when JS enables js-motion; content always visible without JS */
+    .js-motion .reveal{opacity:0;transform:translate3d(0,14px,0);transition:opacity var(--t-reveal) var(--ease),transform var(--t-reveal) var(--ease);will-change:opacity,transform}
+    .js-motion .reveal.is-in{opacity:1;transform:none;will-change:auto}
+    .js-motion .stagger > *{opacity:0;transform:translate3d(0,10px,0);transition:opacity 380ms var(--ease),transform 380ms var(--ease)}
+    .js-motion .stagger.is-in > *:nth-child(1){transition-delay:0ms}
+    .js-motion .stagger.is-in > *:nth-child(2){transition-delay:50ms}
+    .js-motion .stagger.is-in > *:nth-child(3){transition-delay:100ms}
+    .js-motion .stagger.is-in > *:nth-child(4){transition-delay:150ms}
+    .js-motion .stagger.is-in > *:nth-child(5){transition-delay:200ms}
+    .js-motion .stagger.is-in > *:nth-child(6){transition-delay:250ms}
+    .js-motion .stagger.is-in > *{opacity:1;transform:none}
+
     @media (min-width:48rem){
       .shell{width:min(100% - 4rem,var(--shell))}
       .section{padding-block:var(--s6)}
       .header-inner{min-height:5rem}
       .brand span{max-width:none}
-      .nav-toggle{display:none}
-      .nav-list{position:static;display:flex!important;gap:1.35rem;min-width:0;padding:0;background:transparent;border:0}
-      .nav-list a{min-height:44px;border:0;font-size:.95rem}
-      .nav-list li:last-child a{padding:.35rem .7rem;border:1.5px solid var(--sage);border-radius:2px;color:var(--sage)}
-      .nav-list li:last-child a:hover{background:var(--sage);color:var(--white)}
+      .nav-desktop{display:flex}
+      .nav-mobile{display:none}
       .hero{grid-template-columns:minmax(22rem,5fr) minmax(0,7fr);min-height:calc(100svh - 5rem)}
       .hero-copy{padding:var(--s5) clamp(2rem,5vw,5rem);order:1}
       .hero-media{order:2;min-height:40rem}
@@ -246,7 +271,23 @@
     }
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
-      *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}
+      *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+        scroll-behavior:auto!important
+      }
+      .js-motion .reveal,
+      .js-motion .reveal.is-in,
+      .js-motion .stagger > *,
+      .js-motion .stagger.is-in > *{
+        opacity:1!important;
+        transform:none!important;
+        transition:none!important
+      }
+      .category figure img,
+      .craft-grid img,
+      .button::after{transition:none!important;transform:none!important}
     }
   </style>
   <meta name="robots" content="noindex, nofollow">
@@ -254,12 +295,19 @@
 <body>
 <div role="note" style="background:#1C1410;color:#F7F1E8;padding:.75rem 1rem;text-align:center;font:500 .95rem/1.4 system-ui,sans-serif">Démonstration — enseigne fictive produite par le Studio Brontès. Ce commerce n'existe pas : chiffres, avis et horaires sont inventés pour la démonstration.</div>
   <a class="skip" href="#contenu">Aller au contenu principal</a>
+  <p class="demo-banner" role="note">Projet fictif — démonstration <a href="mentions-legales.html">Studio Brontès</a>. Aucune réservation réelle.</p>
 
   <header class="site-header">
     <div class="shell header-inner">
       <a class="brand" href="#accueil" aria-label="Le Bistrot Sauge, retour à l’accueil"><span>Le Bistrot Sauge</span></a>
-      <nav class="nav-panel" aria-label="Navigation principale">
-        <details>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul class="nav-desktop">
+          <li><a href="#maison">La maison</a></li>
+          <li><a href="#carte">La carte</a></li>
+          <li><a href="#venir">Venir</a></li>
+          <li><a class="nav-cta" href="#reserver">Réserver</a></li>
+        </ul>
+        <details class="nav-mobile">
           <summary class="nav-toggle">Menu</summary>
           <ul class="nav-list">
             <li><a href="#maison">La maison</a></li>
@@ -299,7 +347,7 @@
       </figure>
     </section>
 
-    <section class="section" id="maison" aria-labelledby="maison-title">
+    <section class="section reveal" id="maison" aria-labelledby="maison-title">
       <div class="shell">
         <div class="manifesto">
           <div>
@@ -328,7 +376,7 @@
       </div>
     </section>
 
-    <section class="section carte" id="carte" aria-labelledby="carte-title">
+    <section class="section carte reveal" id="carte" aria-labelledby="carte-title">
       <div class="shell">
         <div class="section-head">
           <div>
@@ -354,7 +402,7 @@
                 <h3 id="cat-entrees">Entrées</h3>
                 <span>01</span>
               </div>
-              <ul class="products">
+              <ul class="products stagger">
                 <li class="product">
                   <strong>Tarte fine tomate ancienne &amp; sauge</strong>
                   <span class="price">14&nbsp;€</span>
@@ -389,7 +437,7 @@
                 <h3 id="cat-plats">Plats</h3>
                 <span>02</span>
               </div>
-              <ul class="products">
+              <ul class="products stagger">
                 <li class="product">
                   <strong>Lieu jaune rôti, beurre blanc citronné</strong>
                   <span class="price">28&nbsp;€</span>
@@ -424,7 +472,7 @@
                 <h3 id="cat-desserts">Desserts</h3>
                 <span>03</span>
               </div>
-              <ul class="products">
+              <ul class="products stagger">
                 <li class="product">
                   <strong>Tarte citron sauge</strong>
                   <span class="price">10&nbsp;€</span>
@@ -445,7 +493,7 @@
           </article>
         </div>
 
-        <aside class="drinks" aria-labelledby="boissons-title">
+        <aside class="drinks reveal" aria-labelledby="boissons-title">
           <div class="drinks-grid">
             <figure class="drink-photo">
               <img
@@ -459,7 +507,7 @@
             <div>
               <p class="kicker">Comptoir</p>
               <h3 id="boissons-title">Boissons signature</h3>
-              <ul class="products">
+              <ul class="products stagger">
                 <li class="product">
                   <strong>Spritz sauge</strong>
                   <span class="price">9&nbsp;€</span>
@@ -477,11 +525,11 @@
       </div>
     </section>
 
-    <section class="section proof" id="preuves" aria-labelledby="preuves-title">
+    <section class="section proof reveal" id="preuves" aria-labelledby="preuves-title">
       <div class="shell">
         <p class="kicker kicker--light">Preuves</p>
         <h2 id="preuves-title" class="visually-hidden" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Ce qui nous engage</h2>
-        <div class="proof-grid">
+        <div class="proof-grid stagger">
           <div class="proof-item">
             <span class="proof-number">2019</span>
             <p>Ouverture rue de la Martinière — une adresse de quartier avant d’être une table de destination.</p>
@@ -498,7 +546,7 @@
       </div>
     </section>
 
-    <section class="section craft" id="savoir-faire" aria-labelledby="craft-title">
+    <section class="section craft reveal" id="savoir-faire" aria-labelledby="craft-title">
       <div class="shell">
         <div class="section-head">
           <div>
@@ -527,7 +575,7 @@
               decoding="async">
           </figure>
         </div>
-        <div class="craft-copy">
+        <div class="craft-copy stagger">
           <div class="step">
             <b>01 · Feu</b>
             <p>Rôtissage et jus corsés : la volaille et le poisson passent par une cuisson franche, sans sauce qui masque.</p>
@@ -544,7 +592,7 @@
       </div>
     </section>
 
-    <section class="section visit" id="venir" aria-labelledby="venir-title">
+    <section class="section visit reveal" id="venir" aria-labelledby="venir-title">
       <div class="shell">
         <div class="section-head">
           <div>
@@ -594,11 +642,11 @@
       </div>
     </section>
 
-    <section class="section reserve" id="reserver" aria-labelledby="reserver-title">
+    <section class="section reserve reveal" id="reserver" aria-labelledby="reserver-title">
       <div class="shell">
         <p class="kicker kicker--light">Réservation</p>
         <h2 id="reserver-title">Réserver une table</h2>
-        <p class="lede">Réservations par téléphone ou e-mail. Nous confirmons sous 24 h en semaine. Pour le soir du week-end, merci d’anticiper.</p>
+        <p class="lede">Réservations par téléphone ou e-mail. Nous confirmons sous 24 h en semaine. Pour le soir du week-end, merci d’anticiper. <strong>Démonstration :</strong> les contacts ci-dessous n’ouvrent pas de service réel.</p>
         <div class="reserve-grid">
           <div class="reserve-card">
             <h3>Téléphone</h3>
@@ -626,6 +674,7 @@
         <div>
           <p class="footer-brand">Le Bistrot Sauge</p>
           <p>Bistronomique de saison — feu, herbes, producteur nommé.</p>
+          <p style="margin-top:1rem;color:#a8b0aa;font-size:.9rem">Projet fictif — démonstration Studio Brontès.</p>
         </div>
         <div>
           <p class="footer-title">Contact</p>
@@ -655,5 +704,7 @@
       </div>
     </div>
   </footer>
+
+  <script defer src="js/motion.js"></script>
 </body>
 </html>
