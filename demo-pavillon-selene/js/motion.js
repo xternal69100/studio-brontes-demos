@@ -1,29 +1,29 @@
-/*! Pavillon Séléné — motion · vanilla IO · no third-party */
+/*! Pavillon Séléné — motion · vanilla · single IO · no third-party */
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var nodes = document.querySelectorAll(".reveal, .oeuvre-grid, .salles-grid");
+  var revealSel = ".reveal, .oeuvre-grid, .salles-grid";
+  var nodes = document.querySelectorAll(revealSel);
+  var sections = ["parcours", "oeuvres", "commissariat", "infos"];
+  var links = document.querySelectorAll('.nav-desktop a[href^="#"]');
+  var map = {};
+  var i;
 
-  function showAll() {
-    for (var i = 0; i < nodes.length; i++) nodes[i].classList.add("is-in");
+  for (i = 0; i < links.length; i++) {
+    map[links[i].getAttribute("href").slice(1)] = links[i];
   }
 
-  if (reduce || !("IntersectionObserver" in window)) {
-    showAll();
-  } else {
-    var io = new IntersectionObserver(
-      function (entries) {
-        for (var i = 0; i < entries.length; i++) {
-          var e = entries[i];
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            io.unobserve(e.target);
-          }
-        }
-      },
-      { root: null, rootMargin: "0px 0px -6% 0px", threshold: 0.08 }
-    );
-    for (var j = 0; j < nodes.length; j++) io.observe(nodes[j]);
+  function showAll() {
+    for (i = 0; i < nodes.length; i++) nodes[i].classList.add("is-in");
+  }
+
+  function setCurrent(id) {
+    for (i = 0; i < sections.length; i++) {
+      var L = map[sections[i]];
+      if (!L) continue;
+      if (sections[i] === id) L.setAttribute("aria-current", "true");
+      else L.removeAttribute("aria-current");
+    }
   }
 
   var mobile = document.querySelector(".nav-mobile");
@@ -34,33 +34,40 @@
     });
   }
 
-  var sections = ["parcours", "oeuvres", "commissariat", "infos"];
-  var links = document.querySelectorAll('.nav-desktop a[href^="#"]');
-  if (links.length && "IntersectionObserver" in window) {
-    var map = {};
-    for (var k = 0; k < links.length; k++) {
-      var id = links[k].getAttribute("href").slice(1);
-      map[id] = links[k];
-    }
-    var sio = new IntersectionObserver(
-      function (entries) {
-        for (var i = 0; i < entries.length; i++) {
-          var en = entries[i];
-          if (!en.isIntersecting) continue;
-          var id2 = en.target.id;
-          for (var m = 0; m < sections.length; m++) {
-            var L = map[sections[m]];
-            if (!L) continue;
-            if (sections[m] === id2) L.setAttribute("aria-current", "true");
-            else L.removeAttribute("aria-current");
+  /* No JS hide: content stays visible. is-in only triggers CSS entrance. */
+  if (reduce || !("IntersectionObserver" in window)) {
+    showAll();
+    return;
+  }
+
+  var io = new IntersectionObserver(
+    function (entries) {
+      for (var n = 0; n < entries.length; n++) {
+        var e = entries[n];
+        var t = e.target;
+        var isReveal =
+          t.classList.contains("reveal") ||
+          t.classList.contains("oeuvre-grid") ||
+          t.classList.contains("salles-grid");
+
+        if (isReveal) {
+          if (e.isIntersecting) {
+            t.classList.add("is-in");
+            io.unobserve(t);
           }
+          continue;
         }
-      },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
-    );
-    for (var n = 0; n < sections.length; n++) {
-      var el = document.getElementById(sections[n]);
-      if (el) sio.observe(el);
-    }
+
+        /* Section spy for desktop nav aria-current */
+        if (e.isIntersecting && t.id) setCurrent(t.id);
+      }
+    },
+    { root: null, rootMargin: "-12% 0px -35% 0px", threshold: [0, 0.08, 0.2] }
+  );
+
+  for (i = 0; i < nodes.length; i++) io.observe(nodes[i]);
+  for (i = 0; i < sections.length; i++) {
+    var el = document.getElementById(sections[i]);
+    if (el) io.observe(el);
   }
 })();
