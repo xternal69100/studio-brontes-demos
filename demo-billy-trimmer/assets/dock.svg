@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">BILLY rangée sur son socle illustré</title><desc id="desc">Illustration originale BILLY : concept fictif de tondeuse, rendu technique non explicite.</desc>
+<defs>
+ <linearGradient id="cobalt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#193cff"/><stop offset=".48" stop-color="#071465"/><stop offset="1" stop-color="#020518"/></linearGradient>
+ <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2f8ff"/><stop offset=".17" stop-color="#92a7c3"/><stop offset=".46" stop-color="#f7fbff"/><stop offset=".76" stop-color="#4a5970"/><stop offset="1" stop-color="#cbd8e8"/></linearGradient>
+ <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101b34"/><stop offset=".45" stop-color="#314b73"/><stop offset=".73" stop-color="#111b31"/><stop offset="1" stop-color="#020714"/></linearGradient>
+ <linearGradient id="acid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d6ff00"/><stop offset="1" stop-color="#5fff39"/></linearGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter><filter id="shadow"><feGaussianBlur in="SourceAlpha" stdDeviation="18"/><feOffset dy="24"/><feComponentTransfer><feFuncA type="linear" slope=".55"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#7d91ff" stroke-opacity=".17"/></pattern>
+</defs>
+<rect width="1200" height="900" fill="#050816"/><circle cx="450" cy="290" r="250" fill="#2d55fb" opacity=".5" filter="url(#blur)"/><path d="M0 708h1200" stroke="#7996cc" stroke-opacity=".4" stroke-width="2"/><g filter="url(#shadow)"><path d="M323 639Q596 472 878 639v95H323z" fill="#1e3159" stroke="#b7cff9" stroke-width="6"/><path d="M358 638Q596 524 842 638" fill="none" stroke="url(#acid)" stroke-width="18"/></g><g transform="translate(385 45) rotate(0) scale(0.7)" filter="url(#shadow)">
+ <ellipse cx="420" cy="720" rx="210" ry="54" fill="#000" opacity=".45"/>
+ <rect x="283" y="218" width="275" height="502" rx="108" fill="url(#body)" stroke="#9eb6d8" stroke-width="5"/>
+ <path d="M314 359C380 392 474 391 530 350V620C462 664 374 664 312 622Z" fill="#081126" opacity=".72"/>
+ <rect x="340" y="455" width="160" height="55" rx="27" fill="#07105a" stroke="#a7bdff" stroke-width="4"/><circle cx="419" cy="481" r="18" fill="url(#acid)"/>
+ <rect x="322" y="251" width="196" height="118" rx="48" fill="url(#steel)" stroke="#e7f1ff" stroke-width="5"/>
+ <path d="M335 284h170M335 314h170" stroke="#19243a" stroke-width="11" stroke-linecap="round"/>
+ <path d="M302 226Q419 147 539 226L562 268Q419 215 278 268Z" fill="url(#steel)" stroke="#eaf6ff" stroke-width="5"/>
+ <path d="M295 211Q419 124 548 211" fill="none" stroke="url(#acid)" stroke-width="19" stroke-linecap="round"/>
+ <text x="420" y="590" text-anchor="middle" fill="#dce8ff" font-family="Arial, sans-serif" font-size="26" letter-spacing="8">BILLY</text>
+ <circle cx="323" cy="652" r="7" fill="#d6ff00"/><circle cx="352" cy="652" r="7" fill="#d6ff00"/>
+</g><g fill="#e9f1ff" font-family="Arial,sans-serif"><text x="65" y="84" font-size="25" letter-spacing="8">MATIÈRE / SOCLE</text><text x="65" y="812" font-size="58" font-weight="700">LE RITUEL, PAS LE RAYON.</text></g></svg>
