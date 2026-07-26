@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le Fournil des Terreaux — Boulangerie artisanale à Lyon 1er</title>
+  <meta name="description" content="Pains au levain, viennoiseries pur beurre et douceurs maison au 11 rue d’Algérie, Lyon 1er. Ouvert du mardi au dimanche.">
+  <link rel="canonical" href="https://xternal69100.github.io/studio-brontes-demos/fournil-v3/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#F4EDDF">
+  <meta property="og:title" content="Le Fournil des Terreaux — Du pain vivant, au cœur de Lyon">
+  <meta property="og:description" content="Une boulangerie de quartier aux Terreaux : levain naturel, beurre AOP et fournées quotidiennes.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="https://xternal69100.github.io/studio-brontes-demos/fournil-v3/images/hero-pain.webp">
+  <link rel="preload" href="fonts/fraunces-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/hero-pain.webp" as="image" type="image/webp" fetchpriority="high">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Le Fournil des Terreaux",
+    "url": "https://xternal69100.github.io/studio-brontes-demos/fournil-v3/",
+    "image": "https://xternal69100.github.io/studio-brontes-demos/fournil-v3/images/devanture.webp",
+    "telephone": "+33428290417",
+    "email": "bonjour@fournil-des-terreaux.fr",
+    "priceRange": "€",
+    "servesCuisine": "Boulangerie artisanale française",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "11 rue d’Algérie",
+      "postalCode": "69001",
+      "addressLocality": "Lyon",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday"],"opens":"06:30","closes":"19:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"07:00","closes":"19:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"07:00","closes":"13:00"}
+    ]
+  }
+  </script>
+  <style>
+    @font-face{font-family:"Fraunces";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/fraunces-500-latin.woff2") format("woff2")}
+    @font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/fraunces-600-latin.woff2") format("woff2")}
+    @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/source-sans-3-400-latin.woff2") format("woff2")}
+    @font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/source-sans-3-600-latin.woff2") format("woff2")}
+    :root{
+      --ink:#24150f;--muted:#665044;--brick:#9e3f24;--brick-dark:#762c18;--paper:#f4eddf;--flour:#fcf8f0;--oat:#d9c9af;--butter:#f0c66c;--night:#1a100c;--white:#fffdf8;
+      --line:rgb(36 21 15 / 22%);--font-display:"Fraunces","Iowan Old Style","Palatino Linotype",serif;--font-body:"Source Sans 3","Segoe UI",sans-serif;
+      --s1:.5rem;--s2:1rem;--s3:1.5rem;--s4:2.5rem;--s5:4rem;--s6:6rem;--s7:8rem;--shell:77.5rem;--measure:40rem
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:5rem}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:1.0625rem;line-height:1.55;text-rendering:optimizeLegibility}
+    img{display:block;width:100%;height:auto}
+    figure{margin:0;overflow:hidden;background:var(--oat)}
+    a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+    a:hover{color:var(--brick)}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--brick);outline-offset:4px}
+    .skip{position:fixed;z-index:100;top:.75rem;left:.75rem;transform:translateY(-200%);padding:.75rem 1rem;background:var(--night);color:var(--white);font-weight:600;text-decoration:none}
+    .skip:focus{transform:none}
+    .shell{width:min(100% - 2.5rem,var(--shell));margin-inline:auto}
+    .narrow{max-width:var(--measure)}
+    .kicker{margin:0 0 var(--s2);color:var(--brick);font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+    .kicker--light{color:var(--butter)}
+    h1,h2,h3{font-family:var(--font-display);font-weight:500;letter-spacing:-.035em;line-height:1;text-wrap:balance}
+    h1{margin:0;font-size:clamp(3.1rem,15vw,6.8rem);font-weight:600;line-height:.91;letter-spacing:-.055em}
+    h2{margin:0;font-size:clamp(2.5rem,9vw,4.8rem);line-height:.95}
+    h3{margin:0;font-size:clamp(1.65rem,5vw,2.25rem);line-height:1.04}
+    p{margin:0;max-width:var(--measure)}
+    p+p{margin-top:var(--s2)}
+    .lede{font-size:clamp(1.15rem,2.6vw,1.4rem);line-height:1.45;color:var(--muted)}
+    .section{padding-block:var(--s5)}
+    .section-head{display:grid;gap:var(--s3);margin-bottom:var(--s4)}
+    .rule-top{border-top:1px solid var(--line)}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;min-height:48px;min-width:44px;padding:.75rem 1.25rem;border:2px solid var(--brick);border-radius:2px;background:var(--brick);color:var(--white);font-weight:600;text-decoration:none;transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease}
+    .button::after{content:"→";font-size:1.25em;transition:transform 160ms ease}
+    .button:hover{background:var(--brick-dark);border-color:var(--brick-dark);color:var(--white)}
+    .button:hover::after{transform:translateX(3px)}
+    .text-link{display:inline-flex;align-items:center;min-height:44px;font-weight:600}
+
+    .site-header{position:sticky;z-index:50;top:0;background:rgb(244 237 223 / 94%);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);min-height:4.5rem}
+    .brand{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-display);font-size:1.15rem;font-weight:600;line-height:1;text-decoration:none;letter-spacing:-.03em}
+    .brand span{display:block;max-width:9rem}
+    .nav-toggle{display:flex;align-items:center;min-height:44px;padding:.5rem 0;font-weight:600;cursor:pointer;list-style:none}
+    .nav-toggle::-webkit-details-marker{display:none}
+    .nav-toggle::after{content:"+";margin-left:.5rem;font-size:1.35rem;font-weight:400}
+    details[open] .nav-toggle::after{content:"−"}
+    .nav-list{position:absolute;top:100%;right:0;left:0;margin:0;padding:.75rem 1.25rem 1.25rem;background:var(--paper);border-bottom:1px solid var(--line);list-style:none}
+    .nav-list a{display:flex;align-items:center;min-height:48px;border-bottom:1px solid var(--line);font-weight:600;text-decoration:none}
+
+    .hero{display:grid;background:var(--flour)}
+    .hero-copy{display:flex;flex-direction:column;justify-content:center;padding:var(--s5) 1.25rem}
+    .hero-copy .lede{margin-top:var(--s3)}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;margin:var(--s3) 0 0;padding-top:var(--s2);border-top:1px solid var(--line);font-size:.96rem}
+    .hero-action{margin-top:var(--s4)}
+    .hero-media{min-height:24rem}
+    .hero-media img{height:100%;object-fit:cover;object-position:center}
+
+    .manifesto{display:grid;gap:var(--s4);align-items:end}
+    .manifesto-quote{font-family:var(--font-display);font-size:clamp(2rem,7vw,4rem);line-height:1;letter-spacing:-.04em}
+    .manifesto-note{padding-top:var(--s3);border-top:1px solid var(--line);color:var(--muted)}
+    .macro{margin-top:var(--s5)}
+    .macro img{aspect-ratio:16/9;object-fit:cover}
+    .caption{display:flex;justify-content:space-between;gap:var(--s2);padding:.65rem 0;color:var(--muted);font-size:.88rem}
+
+    .catalogue{background:var(--flour)}
+    .catalogue-intro{max-width:49rem}
+    .category-list{display:grid;gap:var(--s6);margin-top:var(--s5)}
+    .category{display:grid;gap:var(--s3)}
+    .category figure img{aspect-ratio:16/10;object-fit:cover;transition:transform 180ms ease}
+    .category:hover figure img{transform:scale(1.012)}
+    .category-number{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding-bottom:var(--s2);border-bottom:1px solid var(--ink)}
+    .category-number span{color:var(--brick);font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+    .products{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+    .product{display:grid;grid-template-columns:1fr auto;gap:.25rem var(--s2);padding:1rem 0;border-bottom:1px solid var(--line)}
+    .product strong{font-weight:600}
+    .product span{color:var(--muted);font-size:.95rem;grid-column:1/-1}
+    .price{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+    .proof{background:var(--night);color:var(--paper)}
+    .proof-grid{display:grid;gap:var(--s4)}
+    .proof-item{padding-top:var(--s2);border-top:1px solid rgb(244 237 223 / 35%)}
+    .proof-number{display:block;color:var(--butter);font-family:var(--font-display);font-size:clamp(3.5rem,12vw,6rem);line-height:.9;letter-spacing:-.05em}
+    .proof-item p{margin-top:var(--s2);color:#f4eddf}
+
+    .craft-intro{display:grid;gap:var(--s3)}
+    .craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:var(--s4)}
+    .craft-grid figure:first-child{grid-column:1/-1}
+    .craft-grid img{height:100%;min-height:15rem;object-fit:cover}
+    .craft-grid figure:first-child img{aspect-ratio:16/9}
+    .craft-copy{display:grid;gap:var(--s3);margin-top:var(--s4)}
+    .step{padding-top:var(--s2);border-top:1px solid var(--line)}
+    .step b{display:block;margin-bottom:.35rem;color:var(--brick);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+
+    .counter-story{display:grid;background:var(--oat)}
+    .counter-story img{height:100%;min-height:25rem;object-fit:cover}
+    .counter-copy{display:flex;flex-direction:column;justify-content:center;padding:var(--s5) 1.25rem}
+    .counter-copy .lede{margin-top:var(--s3);color:var(--ink)}
+    .counter-copy .text-link{margin-top:var(--s3);align-self:flex-start}
+
+    .visit{background:var(--flour)}
+    .visit-grid{display:grid;gap:var(--s4)}
+    .visit-photo img{aspect-ratio:16/10;object-fit:cover}
+    .visit-panel{display:grid;gap:var(--s4)}
+    address{font-style:normal}
+    .contact-lines{display:grid;gap:.25rem;margin-top:var(--s2)}
+    .contact-lines a{display:inline-flex;align-items:center;min-height:44px;width:max-content;max-width:100%;font-weight:600}
+    .hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+    .hours th,.hours td{padding:.72rem 0;border-bottom:1px solid var(--line);text-align:left}
+    .hours th{font-weight:600}
+    .hours td{text-align:right}
+    .closed{color:var(--brick);font-weight:600}
+    .route{padding-top:var(--s3);border-top:1px solid var(--line)}
+
+    .site-footer{padding:var(--s5) 0 var(--s3);background:var(--night);color:var(--paper)}
+    .footer-grid{display:grid;gap:var(--s4)}
+    .footer-brand{font-family:var(--font-display);font-size:clamp(2rem,8vw,3.8rem);line-height:.95;letter-spacing:-.04em}
+    .footer-title{margin:0 0 .65rem;color:var(--butter);font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+    .footer-grid address,.footer-grid p{color:#f4eddf}
+    .footer-grid a{display:inline-flex;align-items:center;min-height:44px;color:var(--paper)}
+    .footer-grid a:hover{color:var(--butter)}
+    .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem var(--s3);margin-top:var(--s4);padding-top:var(--s2);border-top:1px solid rgb(244 237 223 / 28%);color:#d9c9af;font-size:.9rem}
+    .legal a{min-height:44px}
+
+    @media (min-width:48rem){
+      .shell{width:min(100% - 4rem,var(--shell))}.section{padding-block:var(--s6)}
+      .header-inner{min-height:5rem}.brand span{max-width:none}.nav-toggle{display:none}.nav-list{position:static;display:flex!important;gap:1.5rem;padding:0;background:transparent;border:0}.nav-list a{min-height:44px;border:0;font-size:.95rem}
+      .hero{grid-template-columns:minmax(22rem,5fr) minmax(0,7fr);min-height:calc(100svh - 5rem)}.hero-copy{padding:var(--s5) clamp(2rem,5vw,5rem)}.hero-media{order:2;min-height:42rem}.hero-copy{order:1}
+      .manifesto{grid-template-columns:1.5fr .65fr;gap:var(--s6)}
+      .section-head{grid-template-columns:1.2fr .8fr;align-items:end}.section-head .lede{justify-self:end}
+      .category{grid-template-columns:minmax(0,1.03fr) minmax(20rem,.97fr);gap:var(--s5);align-items:start}.category:nth-child(even) figure{order:2}.category:nth-child(even) .category-body{order:1}
+      .proof-grid{grid-template-columns:repeat(3,1fr);gap:var(--s5)}
+      .craft-intro{grid-template-columns:1.2fr .8fr;align-items:end}.craft-grid{grid-template-columns:1.3fr .7fr .7fr;gap:1rem}.craft-grid figure:first-child{grid-column:auto}.craft-grid figure:first-child img{aspect-ratio:auto}.craft-grid img{min-height:37rem}.craft-copy{grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+      .counter-story{grid-template-columns:1.2fr .8fr}.counter-copy{padding:var(--s6) clamp(2.5rem,6vw,6rem)}
+      .visit-grid{grid-template-columns:1.08fr .92fr;align-items:start;gap:var(--s5)}.visit-panel{padding-top:var(--s2)}
+      .footer-grid{grid-template-columns:1.5fr 1fr 1fr 1fr;align-items:start}
+    }
+    @media (min-width:75rem){.section{padding-block:var(--s7)}.category-list{gap:var(--s7)}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+  <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div role="note" style="background:#1C1410;color:#F7F1E8;padding:.75rem 1rem;text-align:center;font:500 .95rem/1.4 system-ui,sans-serif">Démonstration — enseigne fictive produite par le Studio Brontès. Ce commerce n'existe pas.</div>
+  <a class="skip" href="#contenu">Aller au contenu principal</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#accueil" aria-label="Le Fournil des Terreaux, retour à l’accueil"><span>Le Fournil des Terreaux</span></a>
+      <nav aria-label="Navigation principale">
+        <details>
+          <summary class="nav-toggle">Menu</summary>
+          <ul class="nav-list">
+            <li><a href="#pains">Nos produits</a></li>
+            <li><a href="#savoir-faire">Notre geste</a></li>
+            <li><a href="#quartier">La maison</a></li>
+            <li><a href="#venir">Infos pratiques</a></li>
+          </ul>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil" aria-labelledby="titre-principal">
+      <div class="hero-copy">
+        <p class="kicker">Boulangerie artisanale · Lyon 1er</p>
+        <h1 id="titre-principal">Du pain vivant, au cœur des Terreaux.</h1>
+        <p class="lede">Levain naturel, farines françaises et beurre AOP : chaque fournée prend le temps qu’il faut, jamais plus que le nécessaire.</p>
+        <div class="hero-meta" aria-label="Informations essentielles">
+          <span>Ouvert mardi–dimanche</span>
+          <span>11 rue d’Algérie</span>
+        </div>
+        <div class="hero-action"><a class="button" href="#venir">Venir au fournil</a></div>
+      </div>
+      <figure class="hero-media">
+        <img src="images/hero-pain.webp" alt="Miche au levain rompue sur un comptoir de bois, révélant une mie dorée et alvéolée" width="1280" height="720" fetchpriority="high" decoding="async">
+      </figure>
+    </section>
+
+    <section class="section" aria-labelledby="manifeste-titre">
+      <div class="shell manifesto">
+        <div>
+          <p class="kicker">Notre idée du pain</p>
+          <h2 id="manifeste-titre" class="manifesto-quote">La farine, l’eau, le sel — et 36 heures pour laisser le goût se faire.</h2>
+        </div>
+        <div class="manifesto-note">
+          <p>Depuis 2008, nous pétrissons et cuisons sur place. Notre levain-chef est rafraîchi chaque matin ; les farines viennent de moulins français engagés dans des filières tracées.</p>
+          <p>Le résultat : une croûte sonore, une mie fraîche longtemps, une acidité juste.</p>
+        </div>
+      </div>
+      <figure class="shell macro">
+        <img src="images/macro-mie.webp" alt="Très gros plan sur les alvéoles irrégulières d’une mie au levain et sa croûte caramélisée" width="1280" height="720" loading="lazy" decoding="async">
+        <figcaption class="caption"><span>La miche des Terreaux</span><span>Levain naturel · 36 h</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="section catalogue" id="pains" aria-labelledby="catalogue-titre">
+      <div class="shell">
+        <header class="section-head">
+          <div>
+            <p class="kicker">Au comptoir aujourd’hui</p>
+            <h2 id="catalogue-titre">La fournée, du matin au goûter.</h2>
+          </div>
+          <p class="lede">Des prix simples, des recettes lisibles. Les pièces saisonnières changent ; les essentiels restent fidèles au poste.</p>
+        </header>
+
+        <div class="category-list">
+          <article class="category" aria-labelledby="cat-pains">
+            <figure><img src="images/macro-mie.webp" alt="Pain au levain tranché, mie ouverte et croûte épaisse couleur noisette" width="1280" height="720" loading="lazy" decoding="async"></figure>
+            <div class="category-body">
+              <div class="category-number"><h3 id="cat-pains">Pains au levain</h3><span>01 · Toute la journée</span></div>
+              <ul class="products">
+                <li class="product"><strong>Miche des Terreaux</strong><b class="price">6,80 €</b><span>Blé T80, seigle, levain naturel · 1 kg</span></li>
+                <li class="product"><strong>Campagne</strong><b class="price">4,90 €</b><span>Blé semi-complet, pointe de seigle · 600 g</span></li>
+                <li class="product"><strong>Petit épeautre</strong><b class="price">5,60 €</b><span>Farine de Haute-Provence, graines de tournesol · 500 g</span></li>
+                <li class="product"><strong>Baguette des Canuts</strong><b class="price">1,40 €</b><span>Farine Label Rouge, fermentation lente · 250 g</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="category" aria-labelledby="cat-viennoiseries">
+            <figure><img src="images/viennoiseries.webp" alt="Croissants, pains au chocolat et brioches pralines dorés sur des plaques de cuisson" width="1280" height="720" loading="lazy" decoding="async"></figure>
+            <div class="category-body">
+              <div class="category-number"><h3 id="cat-viennoiseries">Viennoiseries</h3><span>02 · Dès 6 h 30</span></div>
+              <ul class="products">
+                <li class="product"><strong>Croissant pur beurre</strong><b class="price">1,50 €</b><span>Beurre AOP Charentes-Poitou, feuilletage maison</span></li>
+                <li class="product"><strong>Pain au chocolat</strong><b class="price">1,70 €</b><span>Deux barres de chocolat noir 60 %</span></li>
+                <li class="product"><strong>Brioche aux pralines</strong><b class="price">3,40 €</b><span>Pralines roses concassées, fleur d’oranger</span></li>
+                <li class="product"><strong>Chausson pomme–coing</strong><b class="price">2,90 €</b><span>Compote cuite au four, pâte feuilletée inversée</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="category" aria-labelledby="cat-douceurs">
+            <figure><img src="images/comptoir.webp" alt="Comptoir de boulangerie garni de pains et pâtisseries, un sachet remis à une cliente" width="1280" height="720" loading="lazy" decoding="async"></figure>
+            <div class="category-body">
+              <div class="category-number"><h3 id="cat-douceurs">Douceurs & salé</h3><span>03 · Selon l’heure</span></div>
+              <ul class="products">
+                <li class="product"><strong>Flan vanille</strong><b class="price">3,80 €</b><span>Vanille de Madagascar, pâte brisée au beurre</span></li>
+                <li class="product"><strong>Tartelette citron</strong><b class="price">4,50 €</b><span>Crémeux citron, meringue légère, sablé amande</span></li>
+                <li class="product"><strong>Focaccia du marché</strong><b class="price">5,90 €</b><span>Légumes rôtis, herbes fraîches, huile d’olive</span></li>
+                <li class="product"><strong>Sandwich jambon persillé</strong><b class="price">6,80 €</b><span>Baguette au levain, cornichons, moutarde douce</span></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="section proof" aria-label="Nos preuves de savoir-faire">
+      <div class="shell proof-grid">
+        <div class="proof-item"><span class="proof-number">18 ans</span><p>de fournées quotidiennes dans le premier arrondissement de Lyon.</p></div>
+        <div class="proof-item"><span class="proof-number">36 h</span><p>de fermentation pour notre miche signature, du pétrin au four.</p></div>
+        <div class="proof-item"><span class="proof-number">100 %</span><p>de nos pains, viennoiseries et crèmes sont façonnés sur place.</p></div>
+      </div>
+    </aside>
+
+    <section class="section" id="savoir-faire" aria-labelledby="geste-titre">
+      <div class="shell">
+        <header class="craft-intro">
+          <div><p class="kicker">Derrière le comptoir</p><h2 id="geste-titre">Une nuit de gestes pour votre matin.</h2></div>
+          <p class="lede">À 3 h 45, le levain est prêt. Viennent le pétrissage lent, le façonnage à la main puis la chaleur franche du four à sole.</p>
+        </header>
+        <div class="craft-grid">
+          <figure><img src="images/mains-faconnage.webp" alt="Mains farinées d’un boulanger façonnant des pâtons sur un plan de travail en bois" width="1280" height="720" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/petrin.webp" alt="Pâte souple se repliant dans la cuve en acier d’un pétrin de boulangerie" width="720" height="1280" loading="lazy" decoding="async"></figure>
+          <figure><img src="images/four-boulanger.webp" alt="Boulanger enfournant des pains dans un four à sole à la lumière ambrée" width="720" height="1280" loading="lazy" decoding="async"></figure>
+        </div>
+        <div class="craft-copy">
+          <div class="step"><b>01 · Pétrir juste</b><p>Une vitesse lente pour préserver la structure de la pâte et éviter de la chauffer.</p></div>
+          <div class="step"><b>02 · Façonner à la main</b><p>Chaque pâton est pesé, détendu puis façonné selon sa farine et sa fermentation.</p></div>
+          <div class="step"><b>03 · Cuire à la sole</b><p>La vapeur fixe la croûte ; la sole chaude développe les arômes de céréales grillées.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="counter-story" id="quartier" aria-labelledby="quartier-titre">
+      <figure><img src="images/comptoir.webp" alt="Échange d’un sachet de pain au comptoir chaleureux de la boulangerie" width="1280" height="720" loading="lazy" decoding="async"></figure>
+      <div class="counter-copy">
+        <p class="kicker">La maison</p>
+        <h2 id="quartier-titre">Le pain du quartier, sans grand discours.</h2>
+        <p class="lede">On vient avant le bureau, après le marché ou juste pour la brioche aux pralines encore tiède. Nous connaissons les habitudes, gardons une miche de côté quand on nous appelle, et tranchons le pain sur demande.</p>
+        <a class="text-link" href="tel:+33428290417">Appeler le 04 28 29 04 17</a>
+      </div>
+    </section>
+
+    <section class="section visit" id="venir" aria-labelledby="venir-titre">
+      <div class="shell visit-grid">
+        <figure class="visit-photo">
+          <img src="images/devanture.webp" alt="Devanture couleur lie-de-vin de la boulangerie sous les façades en pierre du quartier des Terreaux" width="1280" height="720" loading="lazy" decoding="async">
+          <figcaption class="caption"><span>À 3 minutes de la place des Terreaux</span><span>Lyon 1er</span></figcaption>
+        </figure>
+        <div class="visit-panel">
+          <div>
+            <p class="kicker">Infos pratiques</p>
+            <h2 id="venir-titre">Passez quand le pain est chaud.</h2>
+          </div>
+          <address>
+            <strong>Le Fournil des Terreaux</strong><br>
+            11 rue d’Algérie<br>
+            69001 Lyon
+            <div class="contact-lines">
+              <a href="tel:+33428290417">04 28 29 04 17</a>
+              <a href="mailto:bonjour@fournil-des-terreaux.fr">bonjour@fournil-des-terreaux.fr</a>
+            </div>
+          </address>
+          <table class="hours">
+            <caption class="kicker" style="text-align:left">Horaires par jour</caption>
+            <tbody>
+              <tr><th scope="row">Lundi</th><td class="closed">Fermé</td></tr>
+              <tr><th scope="row">Mardi</th><td>6 h 30 — 19 h 30</td></tr>
+              <tr><th scope="row">Mercredi</th><td>6 h 30 — 19 h 30</td></tr>
+              <tr><th scope="row">Jeudi</th><td>6 h 30 — 19 h 30</td></tr>
+              <tr><th scope="row">Vendredi</th><td>6 h 30 — 19 h 30</td></tr>
+              <tr><th scope="row">Samedi</th><td>7 h — 19 h 30</td></tr>
+              <tr><th scope="row">Dimanche</th><td>7 h — 13 h</td></tr>
+            </tbody>
+          </table>
+          <p class="route"><a class="text-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=11+rue+d%27Alg%C3%A9rie+69001+Lyon" rel="noopener noreferrer">Ouvrir l’itinéraire dans Google Maps →</a><br>Métro A, arrêt Hôtel de Ville – Louis Pradel · Vélo’v, place Sathonay.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div><p class="footer-brand">Le Fournil<br>des Terreaux</p></div>
+        <div><p class="footer-title">Nous trouver</p><address>11 rue d’Algérie<br>69001 Lyon<br><a href="https://www.google.com/maps/dir/?api=1&amp;destination=11+rue+d%27Alg%C3%A9rie+69001+Lyon" rel="noopener noreferrer">Voir le plan</a></address></div>
+        <div><p class="footer-title">Nous joindre</p><p><a href="tel:+33428290417">04 28 29 04 17</a><br><a href="mailto:bonjour@fournil-des-terreaux.fr">Écrire au fournil</a></p></div>
+        <div><p class="footer-title">Horaires</p><p>Mar–ven · 6 h 30–19 h 30<br>Sam · 7 h–19 h 30<br>Dim · 7 h–13 h<br>Lundi · fermé</p></div>
+      </div>
+      <div class="legal"><span>© 2026 Le Fournil des Terreaux</span><span><a href="mentions-legales.html">Mentions légales</a> · <a href="#contenu">Retour en haut</a></span></div>
+    </div>
+  </footer>
+</body>
+</html>
