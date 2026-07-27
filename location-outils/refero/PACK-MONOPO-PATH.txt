@@ -1,0 +1,1 @@
+Pack monopo déplacé hors racine site (gate) : /opt/data/workspace/_location-outils-refero-monopo
