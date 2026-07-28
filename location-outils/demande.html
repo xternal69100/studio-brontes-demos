@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <meta name="description" content="Préparez votre demande de location à Lausanne : machine, dates, contact. Copiez ou partagez le message — aucune donnée n’est transmise par le site.">
-  <meta property="og:title" content="Demander la disponibilité — Location Lausanne">
+  <meta property="og:title" content="Préparer ma demande — Location Lausanne">
   <meta property="og:description" content="Préparez votre demande de location à Lausanne : machine, dates, contact. Copiez ou partagez le message — aucune donnée n’est transmise par le site.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_CH">
-  <title>Demander la disponibilité — Location Lausanne</title>
+  <title>Préparer ma demande — Location Lausanne</title>
   <link rel="preload" href="fonts/Roobert-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Roobert-Light.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="base.css">
@@ -19,7 +19,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Demander la disponibilité — Location Lausanne",
+  "name": "Préparer ma demande — Location Lausanne",
   "description": "Préparez votre demande de location à Lausanne : machine, dates, contact. Copiez ou partagez le message — aucune donnée n’est transmise par le site.",
   "inLanguage": "fr-CH"
 }
@@ -29,7 +29,7 @@
 <body>
 <div role="note" style="background:#1C1410;color:#F7F1E8;padding:.75rem 1rem;text-align:center;font:500 .95rem/1.4 system-ui,sans-serif">Démonstration — enseigne fictive produite par le Studio Brontès. Ce commerce n'existe pas : chiffres, avis et horaires sont inventés pour la démonstration.</div>
   <a class="lien-evitement" href="#contenu">Aller au contenu</a>
-  <div class="preversion" role="note">Préversion — Location Lausanne. Site en cours de mise en place. Aucune donnée du formulaire n’est transmise par ce site. Marque, coordonnées et canal de contact final non officialisés. <code>noindex</code>.</div>
+  <div class="preversion" role="note">Préversion — Location Lausanne (nom de travail). Le formulaire est une démonstration : aucune donnée n’est transmise ni enregistrée. Marque et coordonnées définitives non arrêtées. <code>noindex</code>.</div>
   <header class="site-header is-solid" id="haut">
     <div class="site-header__bar">
       <a class="wordmark" href="index.html">Location <span>Lausanne</span></a>
@@ -39,7 +39,7 @@
 <li><a href="catalogue.html">Machines</a></li>
 <li><a href="fonctionnement.html">Fonctionnement</a></li>
 <li><a href="conditions.html">Conditions</a></li>
-<li class="nav-cta"><a class="btn btn--ghost-dark btn--sm" href="demande.html">Demander la disponibilité</a></li>
+<li class="nav-cta"><a class="btn btn--ghost-dark btn--sm" href="demande.html">Préparer ma demande</a></li>
         </ul>
       </nav>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile">
@@ -49,14 +49,14 @@
     </div>
   </header>
   <div class="nav-mobile" id="nav-mobile" data-nav-mobile>
-    <button type="button" class="btn btn--ghost-light" data-nav-close style="position:absolute;top:1rem;right:var(--gutter)">Fermer</button>
+    <button type="button" class="btn btn--ghost-light nav-mobile__close" data-nav-close>Fermer</button>
     <nav aria-label="Navigation mobile">
       <ul>
         <li><a href="index.html">Accueil</a></li>
 <li><a href="catalogue.html">Machines</a></li>
 <li><a href="fonctionnement.html">Fonctionnement</a></li>
 <li><a href="conditions.html">Conditions</a></li>
-        <li><a class="nav-cta" href="demande.html">Demander la disponibilité</a></li>
+        <li><a class="nav-cta" href="demande.html">Préparer ma demande</a></li>
         <li><a href="mentions-legales.html">Mentions légales</a></li>
       </ul>
     </nav>
@@ -64,22 +64,20 @@
   <main id="contenu" class="page-pad">
     <div class="container" style="max-width:42rem">
       <p class="eyebrow">Contact</p>
-      <h1 class="display" style="font-size:clamp(2rem,6vw,3.25rem);margin-bottom:1rem">Demander la disponibilité</h1>
+      <h1 class="display" style="font-size:clamp(2rem,6vw,3.25rem);margin-bottom:1rem">Préparer ma demande</h1>
       <div class="notice" role="note" data-reveal>
         <h2>Aucune donnée n’est transmise par ce site</h2>
         <p>Ce formulaire <strong>prépare</strong> un message structuré. Vous pouvez le <strong>copier</strong> ou le <strong>partager</strong> vers l’application de votre choix. Il n’y a pas encore de numéro WhatsApp public, d’e-mail opérateur ni d’endpoint d’envoi configuré sur cette préversion. Un bouton qui prétendrait « Envoyer » vers un serveur serait trompeur : il n’est <strong>pas</strong> proposé.</p>
       </div>
       <p class="lead" data-reveal>Indiquez la machine, les dates et comment vous joindre. Plus c’est précis, plus la réponse pourra l’être.</p>
       <form class="form" data-demande-form novalidate style="margin-top:2rem" data-reveal>
-        <div class="field"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" autocomplete="given-name" required><p class="error">Indiquez votre prénom.</p></div>
-        <div class="field"><label for="nom">Nom</label><input id="nom" name="nom" type="text" autocomplete="family-name" required><p class="error">Indiquez votre nom.</p></div>
-        <div class="field"><label for="telephone">Téléphone (WhatsApp de préférence)</label><input id="telephone" name="telephone" type="tel" autocomplete="tel" required><p class="error">Indiquez un numéro de téléphone.</p></div>
-        <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required><p class="error">Indiquez une adresse e-mail valide.</p></div>
+        <div class="field"><label for="nom">Nom ou prénom</label><input id="nom" name="nom" type="text" autocomplete="name" required><p class="error">Indiquez comment vous appeler.</p></div>
+        <div class="field"><label for="contact">Téléphone ou e-mail</label><input id="contact" name="contact" type="text" autocomplete="tel" required><p class="error">Indiquez au moins un moyen de vous joindre.</p></div>
         <div class="field"><label for="machine">Machine souhaitée</label>
           <select id="machine" name="machine" required>
             <option value="">Choisir…</option>
             <option>Kärcher Puzzi 8/1</option>
-            <option>Kärcher Puzzi 9/1</option>
+            <option>Kärcher Puzzi 9/1 Bp (sous réserve de plaque)</option>
             <option>Kärcher SG 4/4 (sous réserve de plaque)</option>
             <option>Kärcher HD 5/17 CX Plus (sous réserve de plaque)</option>
             <option>Je ne sais pas — besoin d’un conseil</option>
@@ -94,24 +92,24 @@
         </fieldset>
         <div class="field"><label for="message">Message <span class="hint">(optionnel)</span></label><textarea id="message" name="message" rows="4" placeholder="Précisions logement, étage, textile…"></textarea></div>
         <div class="form-actions">
-          <button type="button" class="btn btn--filled" data-copy>Copier la demande</button>
-          <button type="button" class="btn btn--ghost-dark" data-share>Partager…</button>
-          <button type="button" class="btn btn--ghost-dark btn--sm" data-show-raw aria-expanded="false">Afficher le texte brut</button>
+          <button type="submit" class="btn btn--filled" data-copy disabled aria-describedby="form-js-note">Copier la demande</button>
+          <button type="button" class="btn btn--ghost-dark" data-share disabled aria-describedby="form-js-note">Partager…</button>
+          <button type="button" class="btn btn--ghost-dark btn--sm" data-show-raw disabled aria-expanded="false" aria-describedby="form-js-note">Afficher le texte brut</button>
         </div>
+        <p class="tiny" id="form-js-note" data-form-js-note>JavaScript est nécessaire pour copier, partager ou afficher le message. Sans lui, aucun envoi ni aucune navigation ne sont possibles : utilisez le gabarit ci-dessous.</p>
         <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-        <p class="tiny">Les tarifs du site sont indicatifs. Caution 100 CHF par machine. SG et HD : modèle sous réserve de plaque.</p>
+        <p class="tiny">Les tarifs du site sont indicatifs. Caution 100 CHF par machine. Puzzi 9/1 Bp, SG 4/4 et HD 5/17 CX Plus : modèles sous réserve de plaque.</p>
+        <p class="tiny">Le formulaire reste sur votre appareil : consultez la <a class="text-link" href="confidentialite.html">politique de confidentialité</a>.</p>
       </form>
       <noscript>
         <div class="notice" style="margin-top:1.5rem">
           <h2>Sans JavaScript</h2>
           <p>Complétez le formulaire ci-dessus puis copiez manuellement le gabarit suivant :</p>
-          <pre style="white-space:pre-wrap;font-size:.85rem">Demande de disponibilité — Location Lausanne
+          <pre style="white-space:pre-wrap;font-size:.85rem">Demande préparée — Location Lausanne
 (Préversion site : message préparé par le visiteur, non transmis automatiquement)
 
-Prénom : 
 Nom : 
-Téléphone : 
-E-mail : 
+Téléphone ou e-mail : 
 Machine : 
 Date début : 
 Date fin : 
@@ -146,6 +144,7 @@ Je souhaite vérifier la disponibilité et les conditions (caution 100 CHF, Twin
           <li><a href="conditions.html#faq">FAQ</a></li>
           <li><a href="demande.html">Demande</a></li>
           <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
         </ul>
       </div>
       <div>
