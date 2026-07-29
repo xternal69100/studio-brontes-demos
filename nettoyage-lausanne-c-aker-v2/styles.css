@@ -242,6 +242,13 @@ button {
 .hero {
   position: relative;
   min-height: 820px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.hero-stage {
+  position: relative;
+  min-height: 820px;
   overflow: hidden;
   color: var(--white);
   background: var(--ink);
@@ -270,7 +277,7 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(16, 21, 18, 0.08), transparent 50%, rgba(16, 21, 18, 0.12));
+  background: linear-gradient(180deg, rgba(16, 21, 18, 0.64) 0%, rgba(16, 21, 18, 0.2) 43%, rgba(16, 21, 18, 0.58) 100%);
   pointer-events: none;
 }
 
@@ -330,6 +337,10 @@ button {
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.065em;
+  hyphens: none;
+  overflow-wrap: normal;
+  text-wrap: balance;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.42);
 }
 
 .hero-copy > p:not(.eyebrow) {
@@ -402,12 +413,16 @@ button {
   transform-origin: left;
 }
 
-.hero-price {
+.hero-cluster {
   position: absolute;
   z-index: 6;
   right: var(--gutter);
   bottom: 78px;
   left: var(--gutter);
+}
+
+.hero-price {
+  position: relative;
   min-height: 174px;
   padding: 1rem;
   color: var(--white);
@@ -446,6 +461,21 @@ button {
   letter-spacing: -0.06em;
 }
 
+.hero-price__value small {
+  margin-left: 0.15rem;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.38em;
+  letter-spacing: 0;
+}
+
+.hero-price__word {
+  margin: 0.2rem 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
 .hero-price > p:nth-child(3) {
   max-width: 30ch;
   font-size: 0.76rem;
@@ -461,6 +491,10 @@ button {
   min-height: 44px;
   font-size: 0.72rem;
   font-weight: 800;
+}
+
+.hero-price--secondary {
+  display: none;
 }
 
 .hero-signal {
@@ -491,12 +525,12 @@ button {
 .transparency h2,
 .method h2 {
   margin: 0;
-  font-family: "Archivo Black", sans-serif;
-  font-size: clamp(2.55rem, 12vw, 8.2rem);
-  font-weight: 400;
-  line-height: 0.84;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2.3rem, 9vw, 6.4rem);
+  font-weight: 650;
+  line-height: 0.91;
   letter-spacing: -0.065em;
-  text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .service-copy h3,
@@ -573,8 +607,22 @@ button {
 }
 
 .js [data-mask].is-seen::after {
-  animation: maskPass 0.4s var(--ease-t1) both;
+  animation: maskPass 0.52s var(--ease-t1) var(--reveal-delay, 0ms) both;
 }
+
+.price-card:nth-child(1),
+.service-row:nth-child(1),
+.machine-card:nth-child(1) { --reveal-delay: 0ms; }
+
+.price-card:nth-child(2),
+.service-row:nth-child(2),
+.machine-card:nth-child(2) { --reveal-delay: 120ms; }
+
+.price-card:nth-child(3),
+.service-row:nth-child(3),
+.machine-card:nth-child(3) { --reveal-delay: 240ms; }
+
+.machine-card:nth-child(4) { --reveal-delay: 360ms; }
 
 .price-card--accent {
   color: var(--ink);
@@ -1058,11 +1106,11 @@ footer > p:last-child {
 
 .credits-page h1 {
   margin: 0;
-  font-family: "Archivo Black", sans-serif;
-  font-size: clamp(3.5rem, 15vw, 9rem);
-  line-height: 0.85;
-  letter-spacing: -0.07em;
-  text-transform: uppercase;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(3rem, 12vw, 7rem);
+  font-weight: 650;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
 }
 
 .credits-page h2 {
@@ -1190,6 +1238,10 @@ footer > p:last-child {
     min-height: max(820px, 100vh);
   }
 
+  .hero-stage {
+    min-height: max(820px, 100vh);
+  }
+
   .hero-media {
     inset: 0;
     height: auto;
@@ -1220,14 +1272,26 @@ footer > p:last-child {
     font-size: 0.95rem;
   }
 
-  .hero-price {
-    top: auto;
+  .hero-cluster {
     right: var(--gutter);
     bottom: clamp(56px, 7vh, 88px);
     left: auto;
-    width: min(33vw, 390px);
-    min-height: 210px;
+    display: block;
+    width: min(42vw, 360px);
+  }
+
+  .hero-price {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .hero-price--primary {
+    min-height: 244px;
     padding: 1.2rem;
+  }
+
+  .hero-price--secondary {
+    display: none;
   }
 
   .hero-signal {
@@ -1255,7 +1319,7 @@ footer > p:last-child {
   }
 
   .media-credit {
-    right: calc(36vw + var(--gutter));
+    right: min(40vw, 500px);
     bottom: 16px;
     left: auto;
     width: 28rem;
@@ -1273,15 +1337,15 @@ footer > p:last-child {
   .journey h2,
   .rental h2,
   .method h2 {
-    font-size: clamp(4.5rem, 9vw, 8.2rem);
+    font-size: clamp(3.35rem, 6.1vw, 6.4rem);
   }
 
   .journey h2 {
-    font-size: clamp(4.5rem, 8vw, 7rem);
+    font-size: clamp(3.25rem, 5.4vw, 5.7rem);
   }
 
   .method h2 {
-    font-size: clamp(4rem, 6.3vw, 5.5rem);
+    font-size: clamp(3rem, 4.6vw, 4.75rem);
   }
 
   .price-grid {
@@ -1383,6 +1447,52 @@ footer > p:last-child {
 }
 
 @media (min-width: 1100px) {
+  .js .hero {
+    min-height: 185vh;
+    padding: clamp(1rem, 3vh, 2.5rem) 0 clamp(2rem, 7vh, 5rem);
+    background: var(--mist);
+  }
+
+  .js .hero-stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    transform:
+      translate3d(var(--hero-translate-x, 0), var(--hero-translate-y, 0), 0)
+      scale(var(--hero-scale, 1));
+    transform-origin: top left;
+    border-radius: var(--hero-radius, 0);
+    box-shadow: 0 24px 60px rgba(16, 21, 18, var(--hero-shadow, 0));
+    will-change: transform;
+  }
+
+  .hero-cluster {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(9.5rem, 0.8fr);
+    gap: 0.5rem;
+    width: min(39vw, 500px);
+  }
+
+  .hero-price--primary {
+    grid-row: span 2;
+  }
+
+  .hero-price--secondary {
+    display: block;
+    min-height: 118px;
+  }
+
+  .hero-price--secondary .card-label {
+    margin-bottom: 0.3rem;
+    font-size: 0.55rem;
+  }
+
+  .hero-price--secondary .hero-price__value {
+    font-size: clamp(1.85rem, 3.2vw, 3rem);
+  }
+
   .price-grid {
     grid-template-columns: repeat(12, 1fr);
   }
@@ -1438,6 +1548,22 @@ footer > p:last-child {
   .hero-signal span,
   .method-meter span {
     transform: none !important;
+  }
+
+  .js .hero {
+    min-height: 820px;
+    padding: 0;
+    background: var(--ink);
+  }
+
+  .js .hero-stage {
+    position: relative;
+    height: auto;
+    min-height: 820px;
+    transform: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    will-change: auto;
   }
 
   [data-mask]::after {

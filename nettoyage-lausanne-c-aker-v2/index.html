@@ -19,7 +19,6 @@
   <meta name="robots" content="noindex, nofollow, noimageindex">
 </head>
 <body>
-<div role="note" style="background:#1C1410;color:#F7F1E8;padding:.75rem 1rem;text-align:center;font:500 .95rem/1.4 system-ui,sans-serif">Démonstration — enseigne fictive produite par le Studio Brontès. Ce commerce n'existe pas : chiffres, avis et horaires sont inventés pour la démonstration.</div>
   <a class="lien-evitement" href="#contenu">Aller au contenu</a>
   <div class="preversion" role="note">
     <span>Préversion · offre en définition</span>
@@ -60,6 +59,7 @@
 
   <main id="contenu">
     <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-stage" data-hero-stage>
       <div class="hero-media" data-parallax aria-hidden="true">
         <img src="images/documentary/puzzi-8-1-action-sofa.webp" width="1440" height="960" alt="">
       </div>
@@ -74,17 +74,28 @@
         </div>
       </div>
 
-      <div class="hero-price" tabindex="0">
-        <p class="card-label">Repère immédiat</p>
-        <p class="hero-price__value">CHF 150</p>
-        <p>Canapé tissu 3 places compatible · injection-extraction.</p>
-        <a href="#tarifs">Voir les conditions <span aria-hidden="true">↘</span></a>
+      <div class="hero-cluster" role="group" aria-label="Repères tarifaires et méthode">
+        <div class="hero-price hero-price--primary" tabindex="0">
+          <p class="card-label">Repère immédiat</p>
+          <p class="hero-price__value">CHF 150</p>
+          <p>Canapé tissu 3 places compatible · injection-extraction.</p>
+          <a href="#tarifs">Voir les conditions <span aria-hidden="true">↘</span></a>
+        </div>
+        <div class="hero-price hero-price--secondary hero-price--rate">
+          <p class="card-label">Tapis compatible</p>
+          <p class="hero-price__value">CHF 15<small>/m²</small></p>
+        </div>
+        <div class="hero-price hero-price--secondary hero-price--method">
+          <p class="card-label">Méthode</p>
+          <p class="hero-price__word">Support<br>puis geste</p>
+        </div>
       </div>
 
       <div class="hero-signal" aria-hidden="true">
         <span>SUR</span><span>PLACE</span>
       </div>
       <p class="media-credit">Photo d’application officielle Kärcher · illustration de méthode, pas une réalisation de l’activité.</p>
+      </div>
     </section>
 
     <section class="prices light-transition" id="tarifs" aria-labelledby="prices-title">

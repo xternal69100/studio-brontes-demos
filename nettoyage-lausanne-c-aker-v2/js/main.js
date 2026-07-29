@@ -91,6 +91,8 @@ if ('IntersectionObserver' in window) {
 
 const heroMedia = document.querySelector('[data-parallax]');
 const heroSignal = document.querySelector('.hero-signal');
+const hero = document.querySelector('.hero');
+const heroStage = document.querySelector('[data-hero-stage]');
 const method = document.querySelector('.method');
 let ticking = false;
 
@@ -109,6 +111,19 @@ function updateScrollMotion() {
 
   if (heroSignal) {
     heroSignal.style.setProperty('--signal-shift', `${Math.round(heroProgress * -14)}px`);
+  }
+
+  if (hero && heroStage && window.matchMedia('(min-width: 1100px)').matches) {
+    const rect = hero.getBoundingClientRect();
+    const travel = Math.max(1, hero.offsetHeight - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, -rect.top / travel));
+    heroStage.style.setProperty('--hero-scale', (1 - progress * 0.68).toFixed(3));
+    heroStage.style.setProperty('--hero-translate-x', `${(progress * 2.4).toFixed(2)}vw`);
+    heroStage.style.setProperty('--hero-translate-y', `${(progress * 2.4).toFixed(2)}vh`);
+    heroStage.style.setProperty('--hero-radius', `${Math.round(progress * 10)}px`);
+    heroStage.style.setProperty('--hero-shadow', `${(progress * 0.2).toFixed(2)}`);
+  } else if (heroStage) {
+    heroStage.removeAttribute('style');
   }
 
   if (method) {
