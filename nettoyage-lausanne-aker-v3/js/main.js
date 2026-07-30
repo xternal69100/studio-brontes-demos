@@ -1,0 +1,162 @@
+document.documentElement.classList.add('js');
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const menuButton = document.querySelector('.menu-button');
+const mobileMenu = document.querySelector('.mobile-menu');
+const closeButton = document.querySelector('.menu-close');
+const main = document.querySelector('main');
+const footer = document.querySelector('footer');
+let previousFocus = null;
+
+/* Pile bandeaux (démo relais optionnelle + .preversion) → offset header absolute.
+   Sans démo : ~28px. Avec démo injectée en tête de body : bas réel de .preversion. */
+function syncHeaderOffset() {
+  const preversion = document.querySelector('.preversion');
+  if (!preversion) return;
+  /* ceil : éviter un chevauchement sub-pixel (round 73.28→73 collait le header sous la barre). */
+  const offset = Math.ceil(preversion.getBoundingClientRect().bottom + window.scrollY);
+  if (offset > 0) {
+    document.documentElement.style.setProperty('--header-offset', `${offset}px`);
+  }
+}
+
+syncHeaderOffset();
+window.addEventListener('resize', syncHeaderOffset, { passive: true });
+if (document.fonts?.ready) {
+  document.fonts.ready.then(syncHeaderOffset).catch(() => {});
+}
+
+function menuFocusables() {
+  return [...mobileMenu.querySelectorAll('button, a[href]')];
+}
+
+function openMenu() {
+  previousFocus = document.activeElement;
+  mobileMenu.hidden = false;
+  mobileMenu.inert = false;
+  menuButton.setAttribute('aria-expanded', 'true');
+  document.body.classList.add('menu-open');
+  main.inert = true;
+  footer.inert = true;
+  closeButton.focus();
+}
+
+function closeMenu() {
+  mobileMenu.hidden = true;
+  mobileMenu.inert = true;
+  menuButton.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
+  main.inert = false;
+  footer.inert = false;
+  (previousFocus || menuButton).focus();
+}
+
+menuButton?.addEventListener('click', openMenu);
+closeButton?.addEventListener('click', closeMenu);
+mobileMenu?.addEventListener('click', (event) => {
+  if (event.target.closest('a')) closeMenu();
+});
+
+document.addEventListener('keydown', (event) => {
+  if (!mobileMenu || mobileMenu.hidden) return;
+
+  if (event.key === 'Escape') {
+    closeMenu();
+    return;
+  }
+
+  if (event.key !== 'Tab') return;
+  const focusables = menuFocusables();
+  const first = focusables[0];
+  const last = focusables.at(-1);
+
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
+});
+
+if (!reducedMotion) {
+  const curtain = document.createElement('div');
+  curtain.className = 'intro-curtain';
+  curtain.setAttribute('aria-hidden', 'true');
+  curtain.innerHTML = '<span>NET / LAU</span>';
+  document.body.append(curtain);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => curtain.classList.add('is-leaving'));
+  });
+
+  window.setTimeout(() => curtain.remove(), 850);
+}
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-seen');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.16 });
+
+  document.querySelectorAll('[data-mask], .light-transition').forEach((element) => {
+    revealObserver.observe(element);
+  });
+}
+
+const heroMedia = document.querySelector('[data-parallax]');
+const heroSignal = document.querySelector('.hero-signal');
+const hero = document.querySelector('.hero');
+const heroStage = document.querySelector('[data-hero-stage]');
+const method = document.querySelector('.method');
+let ticking = false;
+
+function updateScrollMotion() {
+  if (reducedMotion) {
+    ticking = false;
+    return;
+  }
+
+  const scrollY = window.scrollY;
+  const heroProgress = Math.min(1, scrollY / Math.max(1, window.innerHeight));
+
+  if (heroMedia) {
+    heroMedia.style.transform = `translate3d(0, ${Math.round(heroProgress * 18)}px, 0)`;
+  }
+
+  if (heroSignal) {
+    heroSignal.style.setProperty('--signal-shift', `${Math.round(heroProgress * -14)}px`);
+  }
+
+  if (hero && heroStage && window.matchMedia('(min-width: 1100px)').matches) {
+    const rect = hero.getBoundingClientRect();
+    const travel = Math.max(1, hero.offsetHeight - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, -rect.top / travel));
+    heroStage.style.setProperty('--hero-scale', (1 - progress * 0.68).toFixed(3));
+    heroStage.style.setProperty('--hero-translate-x', `${(progress * 2.4).toFixed(2)}vw`);
+    heroStage.style.setProperty('--hero-translate-y', `${(progress * 2.4).toFixed(2)}vh`);
+    heroStage.style.setProperty('--hero-radius', `${Math.round(progress * 10)}px`);
+    heroStage.style.setProperty('--hero-shadow', `${(progress * 0.2).toFixed(2)}`);
+  } else if (heroStage) {
+    heroStage.removeAttribute('style');
+  }
+
+  if (method) {
+    const rect = method.getBoundingClientRect();
+    const progress = Math.max(0.08, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight * 0.4)));
+    method.style.setProperty('--method-progress', progress.toFixed(3));
+  }
+
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (ticking) return;
+  ticking = true;
+  window.requestAnimationFrame(updateScrollMotion);
+}, { passive: true });
+
+updateScrollMotion();
